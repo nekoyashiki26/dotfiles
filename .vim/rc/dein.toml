@@ -37,3 +37,10 @@ depends = ['vim-airline-themes']
 repo = 'vim-airline/vim-airline-themes'
 [[plugins]]
 repo = 'https://github.com/scrooloose/nerdtree'
+[[plugins]]
+repo = 'https://github.com/nathanaelkane/vim-indent-guides'
+[[plugins]]
+repo = 'https://github.com/tomtom/tcomment_vim'
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+

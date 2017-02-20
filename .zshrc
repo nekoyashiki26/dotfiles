@@ -3,20 +3,20 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
 
     # ここに、導入したいプラグインを記述します！
 
-		# 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
-		zplug 'zsh-users/zsh-autosuggestions'
-		# Zshの候補選択を拡張するプラグイン。
-		zplug 'zsh-users/zsh-completions'
-		# プロンプトのコマンドを色づけするプラグイン
-		zplug 'zsh-users/zsh-syntax-highlighting'
-		# pecoのようなインタラクティブフィルタツールのラッパ。
-		zplug 'mollifier/anyframe'
+    # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
+    zplug 'zsh-users/zsh-autosuggestions'
+    # Zshの候補選択を拡張するプラグイン。
+    zplug 'zsh-users/zsh-completions'
+    # プロンプトのコマンドを色づけするプラグイン
+    zplug 'zsh-users/zsh-syntax-highlighting'
+    # pecoのようなインタラクティブフィルタツールのラッパ。
+    zplug 'mollifier/anyframe'
     # シェルの設定を色々いい感じにやってくれる。
     zplug 'yous/vanilli.sh'
     zplug 'yous/lime'
     zplug 'zsh-users/zsh-history-substring-search'
 
-    # Install plugins if there are plugins that have not been installed
+   # Install plugins if there are plugins that have not been installed
     if ! zplug check --verbose; then
         printf "Install? [y/N]: "
         if read -q; then
@@ -54,6 +54,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # パスを追加したい場合
 export PATH="$HOME/bin:$PATH"
 
+ 
 # 色を使用
 autoload -Uz colors
 colors
@@ -71,6 +72,7 @@ alias -g GI='| grep -ri'
 
 # エイリアス
 alias so='source'
+alias sd='shutdown -h now'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
 alias c='cdr'
@@ -206,6 +208,8 @@ setopt always_last_prompt  # 無駄なスクロールを避ける
 ## 実行したプロセスの消費時間が3秒以上かかったら
 ## 自動的に消費時間の統計情報を表示する。
 REPORTTIME=3
+
+
 
 function envproxy(){
 	# Function name      : envproxy

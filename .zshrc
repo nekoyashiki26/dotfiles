@@ -33,7 +33,11 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
     zplug load --verbose
 fi
 
-bindkey -v
+
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
 #
 # Executes commands at the start of an interactive session.
 #
@@ -117,7 +121,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # パスを追加したい場合
 export PATH="$HOME/bin:$PATH"
 
- 
 # 色を使用
 autoload -Uz colors
 colors

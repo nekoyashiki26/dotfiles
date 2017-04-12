@@ -5,16 +5,21 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
 
     # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
     zplug 'zsh-users/zsh-autosuggestions'
+
     # Zshの候補選択を拡張するプラグイン。
     zplug 'zsh-users/zsh-completions'
+
     # プロンプトのコマンドを色づけするプラグイン
     zplug 'zsh-users/zsh-syntax-highlighting'
+
     # pecoのようなインタラクティブフィルタツールのラッパ。
     zplug 'mollifier/anyframe'
+
     # シェルの設定を色々いい感じにやってくれる。
     zplug 'yous/vanilli.sh'
-    zplug 'yous/lime'
+    #zplug 'yous/lime'
     zplug 'zsh-users/zsh-history-substring-search'
+    zplug 'yous/lime'
 
    # Install plugins if there are plugins that have not been installed
     if ! zplug check --verbose; then
@@ -33,6 +38,7 @@ fi
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+export export XDG_CONFIG_HOME=~/.config
 
 # Customize to your needs...
 export LANG=ja_JP.UTF-8
@@ -71,17 +77,21 @@ alias -g GI='| grep -ri'
 
 
 # エイリアス
+alias l='ls -ltr --color=auto'
+alias la='ls -la --color=auto'
+alias ll='ls -l --color=auto'
+alias sudo='sudo -E '
 alias so='source'
 alias sd='shutdown -h now'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
 alias c='cdr'
 alias cl='clear'
+alias sl='sl'
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
-alias cp='cp -a'
-alias rm='rm -rf'
-alias la='ls -la'
+alias cp='cp -i'
+alias rm='rm -i'
 alias mkdir='mkdir -p'
 alias ..='c ../'
 alias back='pushd'

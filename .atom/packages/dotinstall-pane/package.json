@@ -1,0 +1,75 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/d-11739-29470-v3t4le/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/d-11739-29470-v3t4le/package.tgz",
+        "spec": "/tmp/d-11739-29470-v3t4le/package.tgz",
+        "type": "local"
+      },
+      "/tmp/apm-install-dir-11739-29470-1idusqc"
+    ]
+  ],
+  "_from": "../d-11739-29470-v3t4le/package.tgz",
+  "_id": "dotinstall-pane@0.1.9",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/dotinstall-pane",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/d-11739-29470-v3t4le/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/d-11739-29470-v3t4le/package.tgz",
+    "spec": "/tmp/d-11739-29470-v3t4le/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-11739-29470-v3t4le/package.tgz",
+  "_shasum": "6452d0803f04bc4c773bf024946c1a1fed91951b",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/d-11739-29470-v3t4le/package.tgz",
+  "_where": "/tmp/apm-install-dir-11739-29470-1idusqc",
+  "activationCommands": {
+    "atom-workspace": [
+      "dotinstall-pane:toggle",
+      "dotinstall-pane:search"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/dotinstallres/dotinstall-pane/issues"
+  },
+  "dependencies": {
+    "font-awesome": "^4.5.0",
+    "jquery": "2.2.0"
+  },
+  "description": "Dotinstall Pane is a package for Atom, which shows Dotinstall site on the left side pane.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/dotinstallres/dotinstall-pane#readme",
+  "keywords": [
+    "dotinstall",
+    "programming",
+    "tutorial",
+    "education"
+  ],
+  "license": "MIT",
+  "main": "./lib/dotinstall-pane",
+  "name": "dotinstall-pane",
+  "optionalDependencies": {},
+  "readme": "# Dotinstall Pane\n\n_Dotinstall Pane_ is a package for Atom, which shows [Dotinstall](http://dotinstall.com) site on the left side pane.  You can watch tutorial movies and write code at the same time.  Also you can copy text in one pane and paste it on the other.\n\n## Current version\n\n0.1.9\n\n## Usage\n\n### Option (Alt) + Shift + D to show/hide the Dotinstall Pane\n\n* Mac: Option + Shift + D\n* Windows: Alt + Shift + D\n\n![Screenshot](http://static.dotinstall.com/atom_package/screenshot-main.png)\n\n* The pane is resizable.\n* Context menu (right-click menu) is also available to show/hide the Dotinstall Pane.\n\n### Option (Alt) + Shift + Enter to play/pause the Dotinstall video\n\nYou can controll the Dotinstall video player with key bind.\n\n* Mac: Option + Shift + Enter\n* Windows: Alt + Shift + Enter\n\n### Option (Alt) + Shift + [ to rewind 5 sec\n\n* Mac: Option + Shift + [\n* Windows: Alt + Shift + [\n\n### Option (Alt) + Shift + ] to forward 5 sec\n\n* Mac: Option + Shift + ]\n* Windows: Alt + Shift + ]\n\n### Search with context menu\n\n![Screenshot](http://static.dotinstall.com/atom_package/screenshot-search.png)\n\n* You can search for the selected text in Dotinstall by choosing \"ドットインストールで検索\" in the context menu.\n\n## Demo\n\n![Screenshot](http://static.dotinstall.com/atom_package/screenshot-demo.gif)\n\n# Installation\n\nJust run the following command.\n\n```\napm install dotinstall-pane\n```\n\nOr find the package in Atom -> Settings -> Install and search for \"dotinstall-pane\".\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotinstallres/dotinstall-pane.git"
+  },
+  "version": "0.1.9"
+}

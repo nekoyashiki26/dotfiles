@@ -20,10 +20,11 @@ if dein#load_state(s:dein_dir)
   " 予め TOML ファイル（後述）を用意しておく
   let g:rc_dir    = expand('~/.vim/rc')
   let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
   " TOML を読み込み、キャッシュしておく
   call dein#load_toml(s:toml,      {'lazy': 0})
-
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
   " 設定終了
   call dein#end()
   call dein#save_state()
@@ -34,11 +35,13 @@ if dein#check_install()
   call dein#install()
 endif
 
+set clipboard=unnamed
+
 "setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
-set nobackup
+"set nobackup
 " スワップファイルを作らない
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
@@ -48,7 +51,7 @@ set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
 
-
+"set termguicolors
 " 見た目系
 " 行番号を表示
 set number
@@ -80,6 +83,7 @@ inoremap <C-e> <Esc>$a
 " 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
 
+let g:deoplete#enable_at_startup = 1
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
 set list listchars=tab:\▸\-
@@ -106,7 +110,19 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " 矢印キーを無効にする
+"クリップボードの共有
+set clipboard=unnamed,unnamedplus
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
+" insertモードから抜ける
+inoremap <silent> jj <ESC>
+inoremap <silent> <C-j> j
+inoremap <silent> kk <ESC>
+inoremap <silent> <C-k> k
+
+autocmd BufNewFile,BufRead *.rb nnoremap <C-e> :!ruby %
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
+autocmd BufNewFile,BufRead *.pl nnoremap <C-e> :!perl %
+

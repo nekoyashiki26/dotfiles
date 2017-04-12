@@ -1,0 +1,9 @@
+[alias]
+	co = checkout
+	st = status
+	cm = commit
+	br = branch
+	cg = config
+[user]
+	naem = YoshinoriYamaguchi
+	email = b1518292@planet.kanazawa-it.ac.jp

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/tmp/yoshinori/d-11713-29660-puadw7/package.tgz",
+        "raw": "/tmp/d-11739-27922-h41e70/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/yoshinori/d-11713-29660-puadw7/package.tgz",
-        "spec": "/tmp/yoshinori/d-11713-29660-puadw7/package.tgz",
+        "rawSpec": "/tmp/d-11739-27922-h41e70/package.tgz",
+        "spec": "/tmp/d-11739-27922-h41e70/package.tgz",
         "type": "local"
       },
-      "/tmp/yoshinori/apm-install-dir-11713-29660-tugy6b"
+      "/tmp/apm-install-dir-11739-27922-1drxt9z"
     ]
   ],
-  "_from": "../d-11713-29660-puadw7/package.tgz",
-  "_id": "minimap-highlight-selected@4.5.0",
+  "_from": "../d-11739-27922-h41e70/package.tgz",
+  "_id": "minimap-highlight-selected@4.6.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/minimap-highlight-selected",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/yoshinori/d-11713-29660-puadw7/package.tgz",
+    "raw": "/tmp/d-11739-27922-h41e70/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/yoshinori/d-11713-29660-puadw7/package.tgz",
-    "spec": "/tmp/yoshinori/d-11713-29660-puadw7/package.tgz",
+    "rawSpec": "/tmp/d-11739-27922-h41e70/package.tgz",
+    "spec": "/tmp/d-11739-27922-h41e70/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11713-29660-puadw7/package.tgz",
-  "_shasum": "e1b99f88ecff37a867626881fbaf87e5126565d5",
+  "_resolved": "file:../d-11739-27922-h41e70/package.tgz",
+  "_shasum": "6a794f616ac22fce6f97e23106b46bbda2d01d1d",
   "_shrinkwrap": null,
-  "_spec": "/tmp/yoshinori/d-11713-29660-puadw7/package.tgz",
-  "_where": "/tmp/yoshinori/apm-install-dir-11713-29660-tugy6b",
+  "_spec": "/tmp/d-11739-27922-h41e70/package.tgz",
+  "_where": "/tmp/apm-install-dir-11739-27922-1drxt9z",
   "bugs": {
     "url": "https://github.com/atom-minimap/minimap-highlight-selected/issues"
   },
@@ -47,11 +47,12 @@
     },
     "highlightSelected": {
       "versions": {
-        "1.0.0": "consumeHighlightSelectedServiceV1"
+        "2.0.0": "consumeHighlightSelectedServiceV2"
       }
     }
   },
   "dependencies": {
+    "atom-package-deps": "^4.4.1",
     "atom-utils": "0.0.1",
     "event-kit": ">= 0.7.2",
     "underscore-plus": "1.x"
@@ -66,11 +67,14 @@
   "main": "./lib/minimap-highlight-selected",
   "name": "minimap-highlight-selected",
   "optionalDependencies": {},
+  "package-deps": [
+    "highlight-selected"
+  ],
   "readme": "# minimap-highlight-selected package\n\nA minimap binding for the [highlight-selected package](https://github.com/richrace/highlight-selected).\n\n![Screenshot](https://github.com/atom-minimap/minimap-highlight-selected/blob/master/screenshot.png?raw=true)\n\n### Customization\n\nIf you want to change the color of the minimap highlights use the following CSS rules in your user stylesheet:\n\n```css\n/* The rule for normal highlights */\n.minimap .highlight-selected {\n  background: blue;\n}\n\n/* The rule for selected highlights */\n.minimap .highlight-selected.selected {\n  background: red;\n}\n```\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atom-minimap/minimap-highlight-selected.git"
   },
-  "version": "4.5.0"
+  "version": "4.6.1"
 }

@@ -35,12 +35,38 @@ depends = ['vim-airline-themes']
 # 依存関係を指定したからと言って、自動でインストールはされない（ここは NeoBundle と違う）
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+
 [[plugins]]
 repo = 'https://github.com/scrooloose/nerdtree'
+
 [[plugins]]
 repo = 'https://github.com/nathanaelkane/vim-indent-guides'
+
 [[plugins]]
 repo = 'https://github.com/tomtom/tcomment_vim'
+
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'neomake/neomake'
+if = "has('vi')"
+hook_add = '''
+autocmd! BufEnter,BufWritePost * Neomake
+let g:neomake_python_enabled_makers = ['python', 'flake8', 'mypy']
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repo = 'shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+[[plugins]]
+repo = 'https://github.com/zchee/deoplete-jedi'
+
+#[[plugins]]
 

@@ -43,7 +43,7 @@ bindkey -v
 export export XDG_CONFIG_HOME=~/.config
 
 #hub commands install
-#function git(){hub "$@"}
+function git(){hub "$@"}
 local git==git
 branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
 # ここはプロンプトの設定なので今回の設定とは関係ありません
@@ -117,7 +117,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # パスを追加したい場合
 export PATH="$HOME/bin:$PATH"
 
- 
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
 # 色を使用
 autoload -Uz colors
 colors

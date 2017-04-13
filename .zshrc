@@ -47,7 +47,7 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export export XDG_CONFIG_HOME=~/.config
 
 #hub commands install
-#function git(){hub "$@"}
+function git(){hub "$@"}
 local git==git
 branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
 # ここはプロンプトの設定なので今回の設定とは関係ありません
@@ -121,6 +121,13 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # パスを追加したい場合
 export PATH="$HOME/bin:$PATH"
 
+<<<<<<< HEAD
+=======
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
+>>>>>>> 6469fff6c9f71bf358f606cd512de1bd8808df74
 # 色を使用
 autoload -Uz colors
 colors

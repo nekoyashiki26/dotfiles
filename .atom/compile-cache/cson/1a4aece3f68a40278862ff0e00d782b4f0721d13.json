@@ -1,0 +1,1 @@
+{"menu":[{"label":"Packages","submenu":[{"label":"Clipboard Plus","submenu":[{"label":"Toggle","command":"clipboard-plus:toggle"},{"label":"Clear","command":"clipboard-plus:clear"}]}]}]}

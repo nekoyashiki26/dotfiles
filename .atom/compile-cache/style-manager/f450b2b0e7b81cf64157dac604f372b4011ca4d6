@@ -1,0 +1,1 @@
+{"source":"atom-panel.clipboard-plus .select-list ol.list-group li pre {\n  background: transparent;\n}\natom-panel.clipboard-plus .select-list ol.list-group li pre .character-match {\n  color: #d5d9e2;\n  font-weight: bold;\n}\n"}

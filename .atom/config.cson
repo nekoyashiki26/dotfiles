@@ -13,6 +13,10 @@
     ]
   core:
     telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "ariake-dark-syntax"
+    ]
   editor:
     fontFamily: "Ricty Diminished"
     showInvisibles: true
@@ -23,5 +27,7 @@
     plugins:
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false

@@ -1,2 +1,4 @@
-;https-proxy=https://wwwproxy.kanazawa-it.ac.jp:8080/
-;http-proxy=http://wwwproxy.kanazawa-it.ac.jp:8080
+https-proxy=https://wwwproxy.kanazawa-it.ac.jp:8080/
+http-proxy=http://wwwproxy.kanazawa-it.ac.jp:8080/
+strict-ssl = false
+

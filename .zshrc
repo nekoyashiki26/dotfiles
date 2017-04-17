@@ -155,7 +155,8 @@ alias mkdir='mkdir -p'
 alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
-alias vm='sudo vmplayer'
+alias vm='vmplayer'
+alias go='google-chrome &'
 
 # backspace,deleteキーを使えるように
 stty erase ^H
@@ -357,4 +358,4 @@ function envproxy(){
 	esac
 }
 
-
+source ~/setproxy.sh

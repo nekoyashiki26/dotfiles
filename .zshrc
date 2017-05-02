@@ -359,3 +359,5 @@ function envproxy(){
 }
 
 source ~/setproxy.sh
+manpath=/home/yoshinoriyamaguchi/.linuxbrew/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man/ja:/usr/share/man:/usr/lib/jvm/java-8-oracle/man/ja
+export MANPATH

@@ -26,3 +26,16 @@ DOTFILES SETUP FINISHED! bye.
 **************************************************
 
 END
+
+yes | sudo apt-get update
+
+yes | sudo apt-get upgrade
+
+yes | sudo apt-get install zsh
+
+yes | sudo apt-get install gdebi
+
+curl -sL zplug.sh/installer | zsh
+
+git clone https://github.com/nekoyashiki26/proxy.git ~
+

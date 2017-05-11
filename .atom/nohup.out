@@ -1,1 +1,4 @@
 Gtk-Message: Failed to load module "pantheon-filechooser-module"
+
+(atom:17986): GConf-WARNING **: Client failed to connect to the D-BUS daemon:
+Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.

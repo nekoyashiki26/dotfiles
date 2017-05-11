@@ -39,6 +39,7 @@ fi
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+
 export export XDG_CONFIG_HOME=~/.config
 
 #hub commands install

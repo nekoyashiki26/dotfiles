@@ -11,5 +11,10 @@
 	editor = nvim -c \"set fenc=utf-8\"
 [http]
 	sslVerify = false
+	proxy = http://wwwproxy.kanazawa-it.ac.jp:8080
 [https]
 [url "https://"]
+[https]
+	proxy = https://wwwproxy.kanazawa-it.ac.jp:8080
+[url "https://"]
+	insteadOf = git://

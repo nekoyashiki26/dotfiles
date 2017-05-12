@@ -42,6 +42,10 @@ fi
 
 export export XDG_CONFIG_HOME=~/.config
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 #hub commands install
 #function git(){hub "$@"}
 local git==git
@@ -359,6 +363,5 @@ function envproxy(){
 	esac
 }
 
-source ~/setproxy.sh
 manpath=/home/yoshinoriyamaguchi/.linuxbrew/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man/ja:/usr/share/man:/usr/lib/jvm/java-8-oracle/man/ja
 export MANPATH

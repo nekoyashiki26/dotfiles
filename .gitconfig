@@ -15,3 +15,5 @@
 [url "https://"]
 [https]
 [url "https://"]
+[credential]
+	helper = osxkeychain

@@ -1,1 +1,0 @@
-{"context-menu":{"atom-text-editor":[{"label":"Toggle git-gui","command":"git-gui:toggle"}]},"menu":[{"label":"Packages","submenu":[{"label":"Git Gui","submenu":[{"label":"Toggle","command":"git-gui:toggle"}]}]}]}

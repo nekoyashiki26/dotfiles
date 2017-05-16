@@ -160,7 +160,7 @@ alias sl='sl'
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
-alias rm='rm -i'
+alias rm='rm -i -rf'
 alias mkdir='mkdir -p'
 alias ..='c ../'
 alias back='pushd'
@@ -292,3 +292,6 @@ manpath=/home/yoshinoriyamaguchi/.linuxbrew/share/man:/usr/local/man:/usr/local/
 export MANPATH
 
 source ~/setproxy.sh
+
+export NVM_DIR="/Users/nekoyashiki26/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

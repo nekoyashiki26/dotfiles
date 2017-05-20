@@ -1,7 +1,6 @@
 if [[ ! -d ~/.zplug ]];then
   git clone https://github.com/zplug/zplug ~/.zplug
 fi
-]
 
 if [[ -f $HOME/.zplug/init.zsh ]]; then
     source ~/.zplug/init.zsh
@@ -151,7 +150,7 @@ alias la='ls -la'
 alias ll='ls -l'
 alias sudo='sudo -E '
 alias so='source'
-alias sd='shutdown -h now'
+alias sd='sudo shutdown -h now'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
 alias c='cdr'

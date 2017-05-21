@@ -9,6 +9,7 @@
 	email = b1518292@planet.kanazawa-it.ac.jp
 [core]
 	editor = nvim -c \"set fenc=utf-8\"
+	excludesfile = /Users/nekoyashiki26/.gitignore
 [http]
 	sslVerify = false
 [https]

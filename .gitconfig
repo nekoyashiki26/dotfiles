@@ -12,9 +12,14 @@
 	excludesfile = /Users/nekoyashiki26/.gitignore
 [http]
 	sslVerify = false
+	proxy = http://wwwproxy.kanazawa-it.ac.jp:8080
 [https]
 [url "https://"]
 [https]
 [url "https://"]
 [credential]
 	helper = osxkeychain
+[https]
+	proxy = https://wwwproxy.kanazawa-it.ac.jp:8080
+[url "https://"]
+	insteadOf = git://

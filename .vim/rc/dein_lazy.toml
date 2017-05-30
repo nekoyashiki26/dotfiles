@@ -11,4 +11,3 @@ hook_add =  let g:jedi#documentation_command = "K"
 hook_add =  let g:jedi#usages_command = "<leader>n"
 hook_add =  let g:jedi#rename_command = "<leader>R" #quick-runと競合しないように大文字Rに変更. READMEだと<leader>r
 hook_add = autocmd FileType python setlocal completeopt-=preview #ポップアップを表示しない
-'''

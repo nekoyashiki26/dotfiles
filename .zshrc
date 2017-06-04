@@ -166,7 +166,7 @@ alias back='pushd'
 alias diff='diff -U1'
 alias vm='vmplayer'
 alias go='google-chrome &'
-
+alias reboot='sudo reboot'
 # backspace,deleteキーを使えるように
 stty erase ^H
 bindkey "^[[3~" delete-char

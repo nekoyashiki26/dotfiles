@@ -116,10 +116,12 @@ vnoremap  <Up>     <nop>
 vnoremap  <Down>   <nop>
 vnoremap  <Left>   <nop>
 vnoremap  <Right>  <nop>
-inoremap  <Up>     <nop>
-inoremap  <Down>   <nop>
-inoremap  <Left>   <nop>
-inoremap  <Right>  <nop>
+
+"inoremap  <Up>     <nop>
+"inoremap  <Down>   <nop>
+"inoremap  <Left>   <nop>
+:inoremap  <Right>  <nop>
+
 noremap   <Up>     <nop>
 noremap   <Down>   <nop>
 noremap   <Left>   <nop>
@@ -133,4 +135,3 @@ inoremap <silent> <C-k> k
 autocmd BufNewFile,BufRead *.rb nnoremap <C-e> :!ruby %
 autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
 autocmd BufNewFile,BufRead *.pl nnoremap <C-e> :!perl %
-

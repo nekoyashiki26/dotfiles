@@ -120,7 +120,7 @@ vnoremap  <Right>  <nop>
 "inoremap  <Up>     <nop>
 "inoremap  <Down>   <nop>
 "inoremap  <Left>   <nop>
-:inoremap  <Right>  <nop>
+":inoremap  <Right>  <nop>
 
 noremap   <Up>     <nop>
 noremap   <Down>   <nop>

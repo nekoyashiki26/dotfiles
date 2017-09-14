@@ -46,10 +46,6 @@ fi
 
 export export XDG_CONFIG_HOME=~/.config
 
-#export PYENV_ROOT="$HOME/.pyenv"
-#export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init -)"
-
 if [ -d $HOME/.anyenv ] ; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
@@ -167,12 +163,11 @@ alias sl='sl'
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
-alias rm='rm -i -rf'
+alias rm='rm -rf'
 alias mkdir='mkdir -p'
 alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
-alias vm='vmplayer'
 alias go='google-chrome &'
 alias reboot='sudo reboot'
 # backspace,deleteキーを使えるように

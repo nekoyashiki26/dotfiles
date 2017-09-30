@@ -150,6 +150,10 @@ alias -g GI='| grep -ri'
 
 # エイリアス
 alias l='ls -ltr'
+alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY'
+alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY'
+alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY'
+alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY'
 alias la='ls -la'
 alias ll='ls -l'
 alias sudo='sudo -E '

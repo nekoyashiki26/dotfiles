@@ -48,6 +48,8 @@
 [https]
 [url "https://"]
 [https]
+[url "https://"]
+[https]
 	proxy = http://wwwproxy.kanazawa-it.ac.jp:8080
 [url "https://"]
 	insteadOf = git://

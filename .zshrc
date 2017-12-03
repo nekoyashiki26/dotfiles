@@ -1,7 +1,6 @@
-if [[ ! -d ~/.zplug ]];then
-  git clone https://github.com/zplug/zplug ~/.zplug
+if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   zcompile ~/.zshrc
 fi
-
 if [[ -f $HOME/.zplug/init.zsh ]]; then
     source ~/.zplug/init.zsh
 
@@ -9,7 +8,8 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
 
     # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
     zplug 'zsh-users/zsh-autosuggestions'
-
+    zplug "b4b4r07/enhancd", use:init.sh as:plugin
+    #zplug "b4b4r07/enhancd", use:enhancd.sh
     # Zshの候補選択を拡張するプラグイン。
     zplug 'zsh-users/zsh-completions'
 
@@ -17,7 +17,7 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
     zplug 'zsh-users/zsh-syntax-highlighting'
 
     # pecoのようなインタラクティブフィルタツールのラッパ。
-    zplug 'mollifier/anyframe'
+    #zplug 'mollifier/anyframe'
 
     # シェルの設定を色々いい感じにやってくれる。
     zplug 'yous/vanilli.sh'
@@ -27,13 +27,12 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
 
    # Install plugins if there are plugins that have not been installed
     if ! zplug check --verbose; then
-        printf "Install? [y/N]: "
-        if read -q; then
-            echo; zplug install
-        fi
+      printf "Install? [y/N]: "
+      if read -q; then
+         echo; zplug install
+      fi
     fi
-
-    # Then, source plugins and add commands to $PATH
+# Then, source plugins and add commands to $PATH
     zplug load --verbose
 fi
 
@@ -104,6 +103,16 @@ function rprompt-git-current-branch {
   echo "${branch_status}[$branch_name]"
 }
 
+# visual studio code 
+code () {
+if [[ $# = 0 ]]
+then
+    open -a "Visual Studio Code"
+else
+    [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+    open -a "Visual Studio Code" --args "$F"
+fi
+}
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
@@ -124,6 +133,9 @@ zstyle ':completion:*:default' menu select=1
 # コマンドエラーの修正
 setopt nonomatch
 
+fpath=(/path/to/homebrew/share/zsh-completions $fpath)
+
+
 #補完を大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # パスを追加したい場合
@@ -138,8 +150,8 @@ autoload -Uz colors
 colors
 
 # 補完
-autoload -Uz compinit
-compinit
+#autoload -Uz compinit
+#compinit
 
 # グローバルエイリアス
 alias -g L='| less'
@@ -150,15 +162,20 @@ alias -g GI='| grep -ri'
 
 # エイリアス
 alias l='ls -ltr'
+alias java-version='/usr/libexec/java_home -V'
+alias java-version-all='/usr/libexec/java_home'
+alias java9='export JAVA_HOME=`/usr/libexec/java_home -v 9`'
+alias java8='export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_131`'
 alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY'
 alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY'
 alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY'
 alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY'
+alias appletiser='oathtool --totp --base32 $WINDOWS_KEY'
 alias la='ls -la'
 alias ll='ls -l'
 alias sudo='sudo -E '
 alias so='source'
-alias sd='sudo shutdown -h now'
+alias sd='sudo shutdown '
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
 alias c='cdr'
@@ -182,7 +199,7 @@ bindkey "^[[3~" delete-char
 chpwd() { ls -ltr }
 
 # どこからでも参照できるディレクトリパス
-cdpath=(~)
+#cdpath=(~)
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -196,7 +213,13 @@ function mkcd() {
     mkdir -p $1 && cd $1
   fi
 }
-
+function gmail() {
+  
+  THIS_DIR=$(cd >& /dev/null $(dirname $0); pwd)
+  cd ~/project/ddns2017 >& /dev/null
+  npm start
+  cd $THIS_DIR >& /dev/null
+}
 setopt hist_ignore_dups
 
 autoload history-search-end
@@ -270,7 +293,7 @@ setopt extended_history  # 履歴ファイルに時刻を記録
 #setopt hist_expand  # 補完時にヒストリを自動的に展開する。
 setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
 setopt auto_cd  # ディレクトリ名だけで移動
-setopt auto_pushd  # cd したら pushd
+#setopt auto_pushd  # cd したら pushd
 setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
 #setopt auto_param_slash
@@ -296,8 +319,14 @@ setopt always_last_prompt  # 無駄なスクロールを避ける
 REPORTTIME=3
 manpath=/home/yoshinoriyamaguchi/.linuxbrew/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man/ja:/usr/share/man:/usr/lib/jvm/java-8-oracle/man/ja
 export MANPATH
-
+source ~/enhancd/init.sh
 source ~/setproxy.sh
 
 export NVM_DIR="/Users/nekoyashiki26/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
+fi

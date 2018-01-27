@@ -20,6 +20,7 @@ for f in .??*; do
 
     ln -snfv "$THIS_DIR"/"$f" ~/
     ln -snfv "$THIS_DIR"/"setproxy_fish.sh" ~/
+    ln -snfv "$THIS_DIR"/"config.fish" ~/.config/fish/
 done
 
 cat << END

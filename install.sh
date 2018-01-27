@@ -19,6 +19,7 @@ for f in .??*; do
     [ "$f" = ".gitmodules" ] && continue
 
     ln -snfv "$THIS_DIR"/"$f" ~/
+    ln -snfv "$THIS_DIR"/"setproxy.sh" ~/
 done
 
 cat << END

@@ -69,7 +69,6 @@ fi
 setopt prompt_subst
 
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
-RPROMPT='`rprompt-git-current-branch`'
 # Customize to your needs...
 export LANG=ja_JP.UTF-8
 
@@ -264,3 +263,9 @@ export MANPATH
 source ~/enhancd/init.sh
 source ~/setproxy.sh
 
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history

@@ -53,55 +53,7 @@ if [ -d $HOME/.anyenv ] ; then
     export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
   done
 fi
-#hub commands install
-#function git(){hub "$@"}
-local git==git
-branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
-# ここはプロンプトの設定なので今回の設定とは関係ありません
-if [ $UID -eq 0 ];then
-# ルートユーザーの場合
-PROMPT="%F{red}%n:%f%F{green}%d%f [%m] %%
-"
-else
-# ルートユーザー以外の場合
-PROMPT="%F{cyan}%n:%f%F{green}%d%f [%m] %%
-"
-fi
 
-
-# ブランチ名を色付きで表示させるメソッド
-function rprompt-git-current-branch {
-  local branch_name st branch_status
-
-  if [ ! -e  ".git" ]; then
-    # gitで管理されていないディレクトリは何も返さない
-    return
-  fi
-  branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-    # 全てcommitされてクリーンな状態
-    branch_status="%F{green}"
-  elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
-    # gitに管理されていないファイルがある状態
-    branch_status="%F{red}?"
-  elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
-    # git addされていないファイルがある状態
-    branch_status="%F{red}+"
-  elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
-    # git commitされていないファイルがある状態
-    branch_status="%F{yellow}!"
-  elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
-    # コンフリクトが起こった状態
-    echo "%F{red}!(no branch)"
-    return
-  else
-    # 上記以外の状態の場合は青色で表示させる
-    branch_status="%F{blue}"
-  fi
-  # ブランチ名を色付きで表示する
-  echo "${branch_status}[$branch_name]"
-}
 
 # visual studio code 
 code () {
@@ -199,7 +151,6 @@ bindkey "^[[3~" delete-char
 chpwd() { ls -ltr }
 
 # どこからでも参照できるディレクトリパス
-#cdpath=(~)
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -259,15 +210,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' recent-dirs-insert both
 
-### 補完候補
-### _oldlist 前回の補完結果を再利用する。
-### _complete: 補完する。
-### _match: globを展開しないで候補の一覧から補完する。
-### _history: ヒストリのコマンドも補完候補とする。
-### _ignored: 補完候補にださないと指定したものも補完候補とする。
-### _approximate: 似ている補完候補も補完候補とする。
-### _prefix: カーソル以降を無視してカーソル位置までで補完する。
-#zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
 zstyle ':completion:*' completer _complete _ignored
 
 ## 補完候補をキャッシュする。
@@ -322,11 +264,3 @@ export MANPATH
 source ~/enhancd/init.sh
 source ~/setproxy.sh
 
-export NVM_DIR="/Users/nekoyashiki26/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH="/usr/local/opt/bison/bin:$PATH"
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-
-if (which zprof > /dev/null 2>&1) ;then
-  zprof
-fi

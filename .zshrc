@@ -34,7 +34,7 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
       fi
     fi
 # Then, source plugins and add commands to $PATH
-    zplug load --verbose
+    zplug load 
 fi
 
 #

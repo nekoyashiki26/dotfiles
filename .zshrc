@@ -18,6 +18,8 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
 
     # pecoのようなインタラクティブフィルタツールのラッパ。
     #zplug 'mollifier/anyframe'
+    # theme
+    zplug 'denysdovhan/spaceship-prompt', use:spaceship.zsh, from:github, as:theme
 
     # シェルの設定を色々いい感じにやってくれる。
     zplug 'yous/vanilli.sh'
@@ -100,10 +102,6 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 autoload -Uz colors
 colors
 
-# 補完
-#autoload -Uz compinit
-#compinit
-
 # グローバルエイリアス
 alias -g L='| less'
 alias -g H='| head'
@@ -112,7 +110,9 @@ alias -g GI='| grep -ri'
 
 
 # エイリアス
-alias l='ls -ltr'
+alias l='gls --color=auto -ltr'
+alias pip3='pip3'
+alias pip='pip3'
 alias java-version='/usr/libexec/java_home -V'
 alias java-version-all='/usr/libexec/java_home'
 alias java9='export JAVA_HOME=`/usr/libexec/java_home -v 9`'
@@ -122,11 +122,11 @@ alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY'
 alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY'
 alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY'
 alias appletiser='oathtool --totp --base32 $WINDOWS_KEY'
-alias la='ls -la'
-alias ll='ls -l'
+alias la='gls --color=auto -la'
+alias ls='gls --color=auto -l'
 alias sudo='sudo -E '
 alias so='source'
-alias sd='sudo shutdown '
+alias sd='sudo shutdown -h now'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
 alias c='cdr'
@@ -144,10 +144,8 @@ alias go='google-chrome &'
 alias reboot='sudo reboot'
 # backspace,deleteキーを使えるように
 stty erase ^H
-bindkey "^[[3~" delete-char
-
-# cdの後にlsを実行
-chpwd() { ls -ltr }
+bindkey "^[[3~" delete-char # cdの後にlsを実行
+chpwd() { gls --color=auto -ltr }
 
 # どこからでも参照できるディレクトリパス
 
@@ -183,7 +181,6 @@ export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 
 #ディレクトリ名だけで移動する。
-setopt auto_cd
 
 HISTFILE=~/.zsh_historyx
 HISTSIZE=10000
@@ -225,7 +222,10 @@ setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
 setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演算を実行
 setopt transient_rprompt  # コマンド実行後は右プロンプトを消す
 setopt hist_ignore_dups   # 直前と同じコマンドラインはヒストリに追加しない
-setopt hist_ignore_all_dups  # 重複したヒストリは追加しない
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+# 古いコマンドと同じものは無視 
+setopt hist_save_no_dups
 setopt hist_reduce_blanks
 setopt hist_no_store
 setopt hist_verify

@@ -19,8 +19,7 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
     # pecoのようなインタラクティブフィルタツールのラッパ。
     #zplug 'mollifier/anyframe'
     # theme
-    zplug 'denysdovhan/spaceship-prompt', use:spaceship.zsh, from:github, as:theme
-
+    zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme 
     # シェルの設定を色々いい感じにやってくれる。
     zplug 'yous/vanilli.sh'
     #zplug 'yous/lime'

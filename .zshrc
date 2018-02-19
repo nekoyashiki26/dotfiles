@@ -2,39 +2,36 @@ if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
 if [[ -f $HOME/.zplug/init.zsh ]]; then
-    source ~/.zplug/init.zsh
+  source ~/.zplug/init.zsh
 
-    # ここに、導入したいプラグインを記述します！
+  # ここに、導入したいプラグインを記述します！
+  # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
+  zplug 'zsh-users/zsh-autosuggestions'
+  # enhancd cd の拡張
+  zplug "b4b4r07/enhancd", use:init.sh as:plugin
+  # Zshの候補選択を拡張するプラグイン。
+  zplug 'zsh-users/zsh-completions'
 
-    # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
-    zplug 'zsh-users/zsh-autosuggestions'
-    zplug "b4b4r07/enhancd", use:init.sh as:plugin
-    #zplug "b4b4r07/enhancd", use:enhancd.sh
-    # Zshの候補選択を拡張するプラグイン。
-    zplug 'zsh-users/zsh-completions'
+  # プロンプトのコマンドを色づけするプラグイン
+  zplug 'zsh-users/zsh-syntax-highlighting'
 
-    # プロンプトのコマンドを色づけするプラグイン
-    zplug 'zsh-users/zsh-syntax-highlighting'
-
-    # pecoのようなインタラクティブフィルタツールのラッパ。
-    #zplug 'mollifier/anyframe'
-    # theme
-    zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme 
-    # シェルの設定を色々いい感じにやってくれる。
-    zplug 'yous/vanilli.sh'
-    #zplug 'yous/lime'
-    zplug 'zsh-users/zsh-history-substring-search'
-    zplug 'yous/lime'
-
-   # Install plugins if there are plugins that have not been installed
-    if ! zplug check --verbose; then
-      printf "Install? [y/N]: "
-      if read -q; then
-         echo; zplug install
-      fi
+  # pecoのようなインタラクティブフィルタツールのラッパ。
+  #zplug 'mollifier/anyframe'
+  # theme
+  zplug "agkozak/agkozak-zsh-theme"
+  #zplug 'yous/lime'
+  # シェルの設定を色々いい感じにやってくれる。
+  zplug 'yous/vanilli.sh'
+  zplug 'zsh-users/zsh-history-substring-search'
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
     fi
+  fi
 # Then, source plugins and add commands to $PATH
-    zplug load 
+  zplug load 
 fi
 
 #
@@ -44,7 +41,7 @@ fi
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export export XDG_CONFIG_HOME=~/.config
+export XDG_CONFIG_HOME=~/.config
 
 if [ -d $HOME/.anyenv ] ; then
   export PATH="$HOME/.anyenv/bin:$PATH"
@@ -71,13 +68,7 @@ setopt prompt_subst
 
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 # Customize to your needs...
-export LANG=ja_JP.UTF-8
-
-# ls 等の色設定
-export LS_COLORS='di=36;01:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-
-# 補完候補一覧をカラー表示する設定
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+export LANG=en_US.UTF-8
 
 # 補完候補のカーソル選択を有効にする設定
 zstyle ':completion:*:default' menu select=1
@@ -92,10 +83,6 @@ fpath=(/path/to/homebrew/share/zsh-completions $fpath)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # パスを追加したい場合
 export PATH="$HOME/bin:$PATH"
-
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 # 色を使用
 autoload -Uz colors
@@ -131,6 +118,8 @@ alias vz='nvim ~/.zshrc'
 alias c='cdr'
 alias cl='clear'
 alias sl='sl'
+alias vpn='launchctl load -w /Library/LaunchAgents/net.juniper.pulsetray.plist'
+alias uvpn='launchctl unload -w /Library/LaunchAgents/net.juniper.pulsetray.plist'
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
@@ -143,10 +132,10 @@ alias go='google-chrome &'
 alias reboot='sudo reboot'
 # backspace,deleteキーを使えるように
 stty erase ^H
-bindkey "^[[3~" delete-char # cdの後にlsを実行
-chpwd() { gls --color=auto -ltr }
+bindkey "^[[3~" delete-char 
 
-# どこからでも参照できるディレクトリパス
+# cdの後にlsを実行
+chpwd() { gls --color=auto -ltr }
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -160,6 +149,7 @@ function mkcd() {
     mkdir -p $1 && cd $1
   fi
 }
+
 function gmail() {
   
   THIS_DIR=$(cd >& /dev/null $(dirname $0); pwd)

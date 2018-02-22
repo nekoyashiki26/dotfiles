@@ -18,13 +18,10 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
   # pecoのようなインタラクティブフィルタツールのラッパ。
   #zplug 'mollifier/anyframe'
   # theme
-<<<<<<< HEAD
   zplug "agkozak/agkozak-zsh-theme"
   #zplug 'yous/lime'
-=======
   #zplug "agkozak/agkozak-zsh-theme"
   zplug 'yous/lime'
->>>>>>> b741ffa03815682b5db2931da7448d73832dc41e
   # シェルの設定を色々いい感じにやってくれる。
   zplug 'yous/vanilli.sh'
   zplug 'zsh-users/zsh-history-substring-search'

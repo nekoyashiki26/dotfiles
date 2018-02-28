@@ -65,12 +65,14 @@ else
     open -a "Visual Studio Code" --args "$F"
 fi
 }
+
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 # Customize to your needs...
 export LANG=en_US.UTF-8
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # 補完候補のカーソル選択を有効にする設定
 zstyle ':completion:*:default' menu select=1
@@ -101,6 +103,26 @@ alias -g GI='| grep -ri'
 alias l='gls --color=auto -ltr'
 alias pip3='pip3'
 alias pip='pip3'
+alias man='jman'
+alias la='gls --color=auto -la'
+alias ls='gls --color=auto -l'
+alias pupdate='pip3 list --outdated --format=legacy | awk '{print $1}' | xargs pip install -U'
+alias sudo='sudo -E '
+alias sd='sudo shutdown'
+alias reboot='sudo reboot'
+alias vi='nvim'
+alias vz='nvim ~/.zshrc'
+alias sl='sl'
+# historyに日付を表示
+alias h='fc -lt '%F %T' 1'
+alias cp='cp -i'
+alias rm='rm -rf'
+alias diff='diff -U1'
+# backspace,deleteキーを使えるように
+stty erase ^H
+bindkey "^[[3~" delete-char 
+
+
 alias java-version='/usr/libexec/java_home -V'
 alias java-version-all='/usr/libexec/java_home'
 alias java9='export JAVA_HOME=`/usr/libexec/java_home -v 9`'
@@ -110,34 +132,6 @@ alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY'
 alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY'
 alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY'
 alias appletiser='oathtool --totp --base32 $WINDOWS_KEY'
-alias la='gls --color=auto -la'
-alias ls='gls --color=auto -l'
-alias sudo='sudo -E '
-alias so='source'
-alias sd='sudo shutdown -h now'
-alias vi='nvim'
-alias vz='nvim ~/.zshrc'
-alias c='cdr'
-alias cl='clear'
-alias sl='sl'
-alias vpn='launchctl load -w /Library/LaunchAgents/net.juniper.pulsetray.plist'
-alias uvpn='launchctl unload -w /Library/LaunchAgents/net.juniper.pulsetray.plist'
-# historyに日付を表示
-alias h='fc -lt '%F %T' 1'
-alias cp='cp -i'
-alias rm='rm -rf'
-alias mkdir='mkdir -p'
-alias ..='c ../'
-alias back='pushd'
-alias diff='diff -U1'
-alias go='google-chrome &'
-alias reboot='sudo reboot'
-# backspace,deleteキーを使えるように
-stty erase ^H
-bindkey "^[[3~" delete-char 
-
-# cdの後にlsを実行
-chpwd() { gls --color=auto -ltr }
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -150,6 +144,15 @@ function mkcd() {
   else
     mkdir -p $1 && cd $1
   fi
+}
+
+function vpn(){
+  case $1 in 
+    on ) 
+      launchctl load -w /Library/LaunchAgents/net.juniper.pulsetray.plist;;
+    off )
+      launchctl unload -w /Library/LaunchAgents/net.juniper.pulsetray.plist;;
+  esac
 }
 
 function gmail() {

@@ -4,6 +4,7 @@
 	cm = commit
 	br = branch
 	cg = config
+	cl = clone
 [user]
 	name = YoshinoriYamaguchi
 	email = b1518292@planet.kanazawa-it.ac.jp

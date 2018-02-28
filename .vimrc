@@ -35,9 +35,8 @@ if dein#check_install()
   call dein#install()
 endif
 
-set clipboard=unnamed
-
 "setting
+set clipboard=unnamed
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない

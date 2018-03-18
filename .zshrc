@@ -20,8 +20,6 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
   # theme
   zplug "agkozak/agkozak-zsh-theme"
   #zplug 'yous/lime'
-  #zplug "agkozak/agkozak-zsh-theme"
-  zplug 'yous/lime'
   # シェルの設定を色々いい感じにやってくれる。
   zplug 'yous/vanilli.sh'
   zplug 'zsh-users/zsh-history-substring-search'
@@ -74,6 +72,9 @@ setopt prompt_subst
 export LANG=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# brew install時のupdateを禁止
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # 補完候補のカーソル選択を有効にする設定
 zstyle ':completion:*:default' menu select=1
 
@@ -104,8 +105,10 @@ alias l='gls --color=auto -ltr'
 alias pip3='pip3'
 alias pip='pip3'
 alias man='jman'
+alias reload='exec $SHELL -l'
 alias la='gls --color=auto -la'
 alias ls='gls --color=auto -l'
+alias lun='sudo ifconfig en7 ether b8:6b:23:65:9f:8e'
 alias pupdate='pip3 list --outdated --format=legacy | awk '{print $1}' | xargs pip install -U'
 alias sudo='sudo -E '
 alias sd='sudo shutdown'
@@ -122,16 +125,17 @@ alias diff='diff -U1'
 stty erase ^H
 bindkey "^[[3~" delete-char 
 
-
 alias java-version='/usr/libexec/java_home -V'
 alias java-version-all='/usr/libexec/java_home'
 alias java9='export JAVA_HOME=`/usr/libexec/java_home -v 9`'
 alias java8='export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_131`'
-alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY'
-alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY'
-alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY'
-alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY'
-alias appletiser='oathtool --totp --base32 $WINDOWS_KEY'
+
+# google二段階認証
+alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY | pbcopy'
+alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY | pbcopy'
+alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY | pbcopy'
+alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY | pbcopy'
+alias appletiser='oathtool --totp --base32 $WINDOWS_KEY | pbcopy'
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -146,6 +150,19 @@ function mkcd() {
   fi
 }
 
+function twitter(){
+  save="-s"
+  THIS_DIR=$(cd $(dirname $0); pwd)
+  cd ~/project/twitter
+  if [ "$1" = "$save" ]; then
+    python3 twitter.py -s
+  else
+    echo 'b'
+    python3 twitter.py
+  fi
+  cd $THIS_DIR
+}
+
 function vpn(){
   case $1 in 
     on ) 
@@ -153,6 +170,14 @@ function vpn(){
     off )
       launchctl unload -w /Library/LaunchAgents/net.juniper.pulsetray.plist;;
   esac
+}
+
+function all-kill(){
+  if [[ -n $1 ]]; then
+    ps aux | grep $1 | grep -v grep | awk '{ print "kill -9", $2 }' | zsh
+  else
+    echo 'not found process name'
+  fi
 }
 
 function gmail() {
@@ -263,3 +288,29 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^r' select-history
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+

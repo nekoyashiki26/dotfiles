@@ -99,17 +99,17 @@ alias -g H='| head'
 alias -g G='| grep'
 alias -g GI='| grep -ri'
 
-
 # エイリアス
 alias l='gls --color=auto -ltr'
 alias pip3='pip3'
 alias pip='pip3'
 alias man='jman'
-alias reload='exec $SHELL -l'
 alias la='gls --color=auto -la'
 alias ls='gls --color=auto -l'
 alias lun='sudo ifconfig en7 ether b8:6b:23:65:9f:8e'
 alias pupdate='pip3 list --outdated --format=legacy | awk '{print $1}' | xargs pip install -U'
+alias reload='exec $SHELL -l'
+alias new='touch'
 alias sudo='sudo -E '
 alias sd='sudo shutdown'
 alias reboot='sudo reboot'
@@ -121,21 +121,16 @@ alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
 alias rm='rm -rf'
 alias diff='diff -U1'
-# backspace,deleteキーを使えるように
-stty erase ^H
-bindkey "^[[3~" delete-char 
-
-alias java-version='/usr/libexec/java_home -V'
-alias java-version-all='/usr/libexec/java_home'
-alias java9='export JAVA_HOME=`/usr/libexec/java_home -v 9`'
-alias java8='export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_131`'
-
 # google二段階認証
 alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY | pbcopy'
 alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY | pbcopy'
 alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY | pbcopy'
 alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY | pbcopy'
 alias appletiser='oathtool --totp --base32 $WINDOWS_KEY | pbcopy'
+
+# backspace,deleteキーを使えるように
+stty erase ^H
+bindkey "^[[3~" delete-char 
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -180,13 +175,6 @@ function all-kill(){
   fi
 }
 
-function gmail() {
-  
-  THIS_DIR=$(cd >& /dev/null $(dirname $0); pwd)
-  cd ~/project/ddns2017 >& /dev/null
-  npm start
-  cd $THIS_DIR >& /dev/null
-}
 setopt hist_ignore_dups
 
 autoload history-search-end

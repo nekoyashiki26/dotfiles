@@ -102,6 +102,7 @@ alias -g GI='| grep -ri'
 # エイリアス
 alias l='gls --color=auto -ltr'
 alias pip3='pip3'
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 alias pip='pip3'
 alias man='jman'
 alias la='gls --color=auto -la'

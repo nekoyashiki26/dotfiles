@@ -8,6 +8,7 @@ function setproxy(){
 	local HttpProxy='wwwproxy.kanazawa-it.ac.jp:8080'
 	local HttpsProxy='wwwproxy.kanazawa-it.ac.jp:8080'
 	local FtpPrpxy='wwwproxy.kanazawa-it.ac.jp:8080'
+	local AllPrpxy='wwwproxy.kanazawa-it.ac.jp:8080'
 	local NoProxy='localhost,127.0.0.0/8,::1,*kanazawa-it.ac.jp,*kanazawa-tc.ac.jp,*kitnet.ne.jp,*eagle-net.ne.jp'
 	local Copyright='Copyright (c) 2015-2017, Hayato Doi'
 	local tab='    '
@@ -22,12 +23,14 @@ function setproxy(){
 				export http_proxy=$HttpProxy
 				export https_proxy=$HttpsProxy
 				export ftp_proxy=$FtpPrpxy
+				export all_proxy=$AllPrpxy
 				export no_proxy=$NoProxy
 				;;
 			off ) #echo of
 				unset http_proxy
 				unset https_proxy
 				unset ftp_proxy
+				unset all_proxy
 				unset no_proxy
 				;;
 			* )

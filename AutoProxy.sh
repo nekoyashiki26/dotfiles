@@ -21,13 +21,21 @@ case "$SSID" in
   "nekoyashiki26")
     switchtolocation "MY-HOME" ${ssid}
     ;;
+   "AirPort31444")
+    switchtolocation "MY-HOME" ${ssid}
+    ;;
   "mlab")
+    switchtolocation "LAB" ${ssid}
+    ;;
+  "KIT-WLAP2")
     switchtolocation "KIT-WLAP2" ${ssid}
     ;;
-   "KIT-WLAP2")
-    switchtolocation "KIT-WLAP2" ${ssid}
+  "ou are not associated with an AirPort network.")
+    echo 'wifi not connect'
     ;;
   *)
     switchtolocation "Automatic" ${ssid}
     ;;
 esac
+
+

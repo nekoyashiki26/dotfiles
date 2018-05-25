@@ -115,7 +115,8 @@ alias reload='exec $SHELL -l'
 alias new='touch'
 alias sudo='sudo -E '
 alias sd='mac shutdown'
-#alias reboot='mac restart'
+alias reboot='mac restart'
+alias ssaver='mac screensaver'
 alias lock='mac lock'
 alias sleep='mac sleep'
 alias vi='nvim'
@@ -127,6 +128,7 @@ alias cp='cp -i'
 alias rm='rm -rf'
 alias diff='diff -U1'
 # google二段階認証
+alias amazon='oathtool --totp --base32 $AMAZON_KEY | pbcopy'
 alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY | pbcopy'
 alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY | pbcopy'
 alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY | pbcopy'
@@ -163,6 +165,17 @@ function twitter(){
   cd $THIS_DIR
 }
 
+function filemake(){
+  for i in `seq ${2}`
+  do
+    filename=${1}`printf %03d ${i}`
+    if [[ -d ${filename} ]]; then
+      echo "$filename exists!"
+    else
+      mkdir ${filename}
+    fi
+  done
+}
 function vpn(){
   case $1 in 
     on ) 

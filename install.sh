@@ -11,15 +11,19 @@ git submodule update
 echo "start setup..."
 for f in .??*; do
     [ "$f" = ".git" ] && continue
+    [ "$f" = ".git" ] && continue
     [ "$f" = ".gitconfig.local.template" ] && continue
     [ "$f" = ".gitconfig" ] && continue
     [ "$f" = ".gitignore" ] && continue
     [ "$f" = ".DS_Store" ] && continue
     [ "$f" = ".require_oh-my-zsh" ] && continue
     [ "$f" = ".gitmodules" ] && continue
+    [ "$f" = ".gitattributes" ] && continue
+    [ "$f" = ".git-crypt" ] && continue
 
-    ln -snfv "$THIS_DIR"/"$f" ~/
-    ln -snfv "$THIS_DIR"/"setproxy.sh" ~/
+    ln -snfv "$THIS_DIR"/"$f" ~
+#   echo $f 
+#ln -snfv "$THIS_DIR"/"setproxy.sh" ~/
 done
 
 cat << END

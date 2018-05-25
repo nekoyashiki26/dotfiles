@@ -221,7 +221,7 @@ setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
 source ~/enhancd/init.sh
-source ~/setproxy.sh
+source ~/dotfiles/setproxy.sh
 
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")

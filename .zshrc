@@ -110,6 +110,9 @@ alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY | pbcopy'
 alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY | pbcopy'
 alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY | pbcopy'
 alias appletiser='oathtool --totp --base32 $WINDOWS_KEY | pbcopy'
+alias kekkaisensen='oathtool --totp --base32 $KEKKAISENSEN | pbcopy'
+alias github='oathtool --totp --base32 $GitHub | pbcopy'
+alias facebook='oathtool --totp --base32 $FaceBook | pbcopy'
 
 # backspace,deleteキーを使えるように
 stty erase ^H
@@ -235,4 +238,3 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -10,6 +10,7 @@ git submodule update
 
 echo "start setup..."
 for f in .??*; do
+    [ "$f" = ".git" ] && continue
     [ "$f" = ".gitconfig.local.template" ] && continue
     [ "$f" = ".gitconfig" ] && continue
     [ "$f" = ".gitignore" ] && continue

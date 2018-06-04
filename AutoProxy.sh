@@ -27,6 +27,9 @@ case "$SSID" in
   "mlab")
     switchtolocation "LAB" ${ssid}
     ;;
+  "mukai_lab")
+    switchtolocation "LAB" ${ssid}
+    ;;
   "KIT-WLAP2")
     switchtolocation "KIT-WLAP2" ${ssid}
     ;;

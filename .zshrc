@@ -7,8 +7,6 @@ if [[ -f $HOME/.zplug/init.zsh ]]; then
   # ここに、導入したいプラグインを記述します！
   # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
   zplug 'zsh-users/zsh-autosuggestions'
-  # enhancd cd の拡張
-  zplug "b4b4r07/enhancd", use:init.sh as:plugin
   # Zshの候補選択を拡張するプラグイン。
   zplug 'zsh-users/zsh-completions'
 
@@ -66,6 +64,7 @@ fi
 
 # Customize to your needs...
 export LANG=en_US.UTF-8
+export PATH=$PATH:/usr/local/sbin/
 
 # brew install時のupdateを禁止
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -94,6 +93,7 @@ alias sd='mac shutdown'
 alias reboot='mac restart'
 alias ssaver='mac screensaver'
 alias lock='mac lock'
+alias r='exec $SHELL -l'
 alias sleep='mac sleep'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
@@ -118,16 +118,10 @@ bindkey "^[[3~" delete-char
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
 
-function twitter(){
-  save="-s"
+function bus(){
   THIS_DIR=$(cd $(dirname $0); pwd)
-  cd ~/project/twitter
-  if [ "$1" = "$save" ]; then
-    python3 twitter.py -s
-  else
-    echo 'b'
-    python3 twitter.py
-  fi
+  cd ~/project/hobby/python/lab_bus
+  python3 bus.py $1
   cd $THIS_DIR
 }
 
@@ -240,3 +234,5 @@ function _pip_completion {
              PIP_AUTO_COMPLETE=1 $words[1] ) )
 }
 compctl -K _pip_completion pip
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

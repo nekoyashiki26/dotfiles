@@ -66,6 +66,24 @@ fi
 export LANG=en_US.UTF-8
 export PATH=$PATH:/usr/local/sbin/
 
+#zsh History
+# DB file path
+export ZSH_HISTORY_FILE="$HOME/.zsh_history.db"
+# CLI selector
+export ZSH_HISTORY_FILTER="fzy"
+
+# History per directory
+export ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
+# All histories
+export ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
+
+# Run any SQLs on original selector I/F (with screen)
+export ZSH_HISTORY_KEYBIND_SCREEN="^r^r"
+
+# substring
+export ZSH_HISTORY_KEYBIND_ARROW_UP="^p"
+export ZSH_HISTORY_KEYBIND_ARROW_DOWN="^n"
+
 # brew install時のupdateを禁止
 export HOMEBREW_NO_AUTO_UPDATE=1
 
@@ -113,10 +131,6 @@ alias appletiser='oathtool --totp --base32 $WINDOWS_KEY | pbcopy'
 alias kekkaisensen='oathtool --totp --base32 $KEKKAISENSEN | pbcopy'
 alias github='oathtool --totp --base32 $GitHub | pbcopy'
 alias facebook='oathtool --totp --base32 $FaceBook | pbcopy'
-
-# backspace,deleteキーを使えるように
-stty erase ^H
-bindkey "^[[3~" delete-char 
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -182,7 +196,6 @@ function all-rename(){
   fi
 }
 
-
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 
 HISTFILE=~/.zsh_historyx
@@ -212,20 +225,12 @@ setopt hist_verify
 setopt share_history  # シェルのプロセスごとに履歴を共有
 setopt extended_history  # 履歴ファイルに時刻を記録
 setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
-setopt auto_cd  # ディレクトリ名だけで移動
 setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
 source ~/enhancd/init.sh
 source ~/dotfiles/setproxy.sh
-
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-  CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
 
 # pip zsh completion start
 function _pip_completion {

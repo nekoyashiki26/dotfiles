@@ -1,20 +1,21 @@
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
-if [[ -f $HOME/.zplug/init.zsh ]]; then
-  source ~/.zplug/init.zsh
 
+export ZPLUG_HOME=/usr/local/opt/zplug
+if [[ -f $ZPLUG_HOME/init.zsh ]]; then
+    source $ZPLUG_HOME/init.zsh
   # ここに、導入したいプラグインを記述します！
   # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
   zplug 'zsh-users/zsh-autosuggestions'
   # Zshの候補選択を拡張するプラグイン。
   zplug 'zsh-users/zsh-completions'
 
+  # cdの拡張
+  zplug "b4b4r07/enhancd", use:init.sh
   # プロンプトのコマンドを色づけするプラグイン
   zplug 'zsh-users/zsh-syntax-highlighting'
 
-  # pecoのようなインタラクティブフィルタツールのラッパ。
-  #zplug 'mollifier/anyframe'
   # theme
   zplug "agkozak/agkozak-zsh-theme"
   #zplug 'yous/lime'
@@ -64,13 +65,12 @@ fi
 
 # Customize to your needs...
 export LANG=en_US.UTF-8
-export PATH=$PATH:/usr/local/sbin/
 
 #zsh History
 # DB file path
 export ZSH_HISTORY_FILE="$HOME/.zsh_history.db"
 # CLI selector
-export ZSH_HISTORY_FILTER="fzy"
+export ZSH_HISTORY_FILTER="fzf:fzy"
 
 # History per directory
 export ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
@@ -229,7 +229,8 @@ setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
-source ~/enhancd/init.sh
+#source ~/enhancd/init.sh
+source ~/zsh-history/init.zsh
 source ~/dotfiles/setproxy.sh
 
 # pip zsh completion start

@@ -29,6 +29,13 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
       echo; zplug install
     fi
   fi
+
+  if ! zplug status >> /dev/null; then
+    print "Update[y/N]: "
+    if read -q; then
+      echo; zplug update
+    fi
+  fi
 # Then, source plugins and add commands to $PATH
   zplug load 
 fi
@@ -111,7 +118,7 @@ alias sd='mac shutdown'
 alias reboot='mac restart'
 alias ssaver='mac screensaver'
 alias lock='mac lock'
-alias r='exec $SHELL -l'
+alias load='exec $SHELL -l'
 alias sleep='mac sleep'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'

@@ -21,8 +21,6 @@ for f in .??*; do
     [ "$f" = ".git-crypt" ] && continue
 
     ln -snfv "$THIS_DIR"/"$f" ~
-#   echo $f 
-#ln -snfv "$THIS_DIR"/"setproxy.sh" ~/
 done
 
 cat << END

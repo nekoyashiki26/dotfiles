@@ -40,7 +40,7 @@ fi
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export XDG_CONFIG_HOME=~/.config
+export XDG_CONFIG_HOME=~/dotfiles
 
 if [ -d $HOME/.anyenv ] ; then
   export PATH="$HOME/.anyenv/bin:$PATH"
@@ -64,25 +64,7 @@ fi
 }
 
 # Customize to your needs...
-export LANG=en_US.UTF-8
-
-#zsh History
-# DB file path
-export ZSH_HISTORY_FILE="$HOME/.zsh_history.db"
-# CLI selector
-export ZSH_HISTORY_FILTER="fzf:fzy"
-
-# History per directory
-export ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
-# All histories
-export ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
-
-# Run any SQLs on original selector I/F (with screen)
-export ZSH_HISTORY_KEYBIND_SCREEN="^r^r"
-
-# substring
-export ZSH_HISTORY_KEYBIND_ARROW_UP="^p"
-export ZSH_HISTORY_KEYBIND_ARROW_DOWN="^n"
+export LANG=ja_JP.UTF-8
 
 # brew install時のupdateを禁止
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -196,6 +178,13 @@ function all-rename(){
   fi
 }
 
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
+
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 
 HISTFILE=~/.zsh_historyx
@@ -230,7 +219,6 @@ setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
 #source ~/enhancd/init.sh
-source ~/zsh-history/init.zsh
 source ~/dotfiles/setproxy.sh
 
 # pip zsh completion start
@@ -244,3 +232,4 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
+export PATH="/usr/local/sbin:$PATH"

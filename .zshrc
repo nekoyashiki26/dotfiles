@@ -9,13 +9,14 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
   # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
   zplug 'zsh-users/zsh-autosuggestions'
   # Zshの候補選択を拡張するプラグイン。
-  zplug 'zsh-users/zsh-completions'
+  zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
 
   # cdの拡張
   zplug "b4b4r07/enhancd", use:init.sh
-  # プロンプトのコマンドを色づけするプラグイン
-  zplug 'zsh-users/zsh-syntax-highlighting'
 
+  # プロンプトのコマンドを色づけするプラグイン
+  # compinit 以降に読み込むようにロードの優先度を変更する
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
   # theme
   zplug "agkozak/agkozak-zsh-theme"
   #zplug 'yous/lime'
@@ -23,22 +24,15 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
   zplug 'yous/vanilli.sh'
   zplug 'zsh-users/zsh-history-substring-search'
   # Install plugins if there are plugins that have not been installed
-  if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-      echo; zplug install
-    fi
-  fi
+#  if ! zplug check --verbose; then
+#    printf "Install? [y/N]: "
+#    if read -q; then
+#      echo; zplug install
+#    fi
+#  fi
 # Then, source plugins and add commands to $PATH
   zplug load 
 fi
-
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 export XDG_CONFIG_HOME=~/dotfiles
 
@@ -94,6 +88,7 @@ alias reboot='mac restart'
 alias ssaver='mac screensaver'
 alias lock='mac lock'
 alias load='exec $SHELL -l'
+alias c='clear'
 alias sleep='mac sleep'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'

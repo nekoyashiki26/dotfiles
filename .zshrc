@@ -18,8 +18,8 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
   # compinit 以降に読み込むようにロードの優先度を変更する
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
   # theme
-  zplug "agkozak/agkozak-zsh-theme"
-  #zplug 'yous/lime'
+  #zplug "agkozak/agkozak-zsh-theme"
+  zplug 'yous/lime'
   # シェルの設定を色々いい感じにやってくれる。
   zplug 'yous/vanilli.sh'
   zplug 'zsh-users/zsh-history-substring-search'
@@ -34,7 +34,6 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
   zplug load 
 fi
 
-export XDG_CONFIG_HOME=~/dotfiles
 
 if [ -d $HOME/.anyenv ] ; then
   export PATH="$HOME/.anyenv/bin:$PATH"
@@ -68,6 +67,8 @@ zstyle ':completion:*:default' menu select=1
 
 fpath=(/path/to/homebrew/share/zsh-completions $fpath)
 
+# init.vimのpath
+export XDG_CONFIG_HOME="$HOME/.config"
 
 #補完を大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -92,6 +93,7 @@ alias c='clear'
 alias sleep='mac sleep'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
+alias vs='nvim ~/.ssh/config'
 alias sl='sl'
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
@@ -136,6 +138,8 @@ function vpn(){
       launchctl load -w /Library/LaunchAgents/net.juniper.pulsetray.plist;;
     off )
       launchctl unload -w /Library/LaunchAgents/net.juniper.pulsetray.plist;;
+    * ) 
+        echo 'invalid option'
   esac
 }
 

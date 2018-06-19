@@ -22,7 +22,7 @@ for f in .??*; do
 
     ln -snfv "$THIS_DIR"/"$f" ~
 done
-
+ln -snfv ~/dotfiles/nvim ~/.config/
 cat << END
 
 **************************************************

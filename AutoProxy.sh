@@ -21,7 +21,7 @@ case "$SSID" in
   "nekoyashiki26")
     switchtolocation "MY-HOME" ${ssid}
     ;;
-   "AirPort31444")
+   "nekoyashiki")
     switchtolocation "MY-HOME" ${ssid}
     ;;
   "mlab")

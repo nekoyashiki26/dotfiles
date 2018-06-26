@@ -18,8 +18,8 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
   # compinit 以降に読み込むようにロードの優先度を変更する
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
   # theme
-  #zplug "agkozak/agkozak-zsh-theme"
-  zplug 'yous/lime'
+  zplug "agkozak/agkozak-zsh-theme"
+  #zplug 'yous/lime'
   # シェルの設定を色々いい感じにやってくれる。
   zplug 'yous/vanilli.sh'
   zplug 'zsh-users/zsh-history-substring-search'
@@ -83,6 +83,7 @@ alias man='jman'
 alias la='gls --color=auto -la'
 alias ls='gls --color=auto -l'
 alias disk='diskutil'
+alias dl='aria2c -x 16'
 alias sudo='sudo -E '
 alias sd='mac shutdown'
 alias reboot='mac restart'

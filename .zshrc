@@ -38,10 +38,11 @@ fi
 if [ -d $HOME/.anyenv ] ; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
-  for D in `ls $HOME/.anyenv/envs`
+  for D in `\ls $HOME/.anyenv/envs`
   do
     export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
   done
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 
@@ -104,6 +105,7 @@ alias diff='diff -U1'
 # 二段階認証
 alias amazon='oathtool --totp --base32 $AMAZON_KEY | pbcopy'
 alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY | pbcopy'
+alias nekoyashiki26='oathtool --totp --base32 $NEKOYASHIKI26_KEY | pbcopy'
 alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY | pbcopy'
 alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY | pbcopy'
 alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY | pbcopy'
@@ -111,13 +113,16 @@ alias appletiser='oathtool --totp --base32 $WINDOWS_KEY | pbcopy'
 alias kekkaisensen='oathtool --totp --base32 $KEKKAISENSEN | pbcopy'
 alias github='oathtool --totp --base32 $GitHub | pbcopy'
 alias facebook='oathtool --totp --base32 $FaceBook | pbcopy'
+# ssh
+alias cisco_remote='ssh -oProxyCommand="ssh -W %h:%p mlab_remote" cisco'
+alias cisco='ssh -oProxyCommand="ssh -W %h:%p mlab" cisco'
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
 
 function bus(){
   THIS_DIR=$(cd $(dirname $0); pwd)
-  cd ~/project/hobby/python/lab_bus
+  cd ~/project/lab/lab_bus
   python3 bus.py $1
   cd $THIS_DIR
 }

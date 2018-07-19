@@ -166,8 +166,8 @@ function all-rename(){
     do
       (( count++ ))
       filename=$(awk '{print $NF}' <<<${line})
-      echo "${filename} -> $newfile`printf %02d $count`.${filename##*.}"
-      mv $filename "$newfile`printf %02d $count`.${filename##*.}"
+      echo "${filename} -> $newfile`printf %04d $count`.${filename##*.}"
+      mv $filename "$newfile`printf %04d $count`.${filename##*.}"
     done
   elif [[ -n $1 ]]; then
     count=0
@@ -176,7 +176,7 @@ function all-rename(){
     do
       (( count++ ))
       filename=$(awk '{print $NF}' <<<${line})
-      mv $filename "$newfile`printf %02d $count`.${filename##*.}"
+      mv $filename "$newfile`printf %04d $count`.${filename##*.}"
     done
   else
     echo 'please enter new file name'

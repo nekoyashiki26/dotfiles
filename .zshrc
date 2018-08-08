@@ -223,8 +223,7 @@ setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
-#source ~/enhancd/init.sh
-source ~/dotfiles/setproxy.sh
+source ~/go/src/github.com/nekoyashiki26/dotfiles/setproxy.sh
 
 # pip zsh completion start
 function _pip_completion {

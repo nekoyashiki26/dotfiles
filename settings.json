@@ -1,0 +1,35 @@
+{
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.renderWhitespace":"all"
+    },
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "team.showWelcomeMessage": false,
+    "python.pythonPath": "/Users/nekoyashiki26/.anyenv/envs/pyenv/versions/3.6.1/bin/python",
+    "vim.useSystemClipboard":true,
+    "vim.cmdLineInitialColon": true,
+    "vim.hlsearch": true,
+    "vim.easymotion": true,
+    "vim.visualstar": true,
+    "vim.useCtrlKeys": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.otherModesKeyBindings": [
+        {
+            "before": ["leader","w"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        }
+    ]
+}

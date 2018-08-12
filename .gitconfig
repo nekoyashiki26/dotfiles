@@ -1,0 +1,14 @@
+[alias]
+	co = checkout
+	st = status
+	cm = commit
+	br = branch
+	cg = config
+[user]
+	naem = YoshinoriYamaguchi
+	email = b1518292@planet.kanazawa-it.ac.jp
+	name = YoshinoriYamaguchi
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+[ghq]
+	root = /Users/nekoyashiki26/go/src

@@ -20,7 +20,8 @@ for f in .??*; do
 
     ln -snfv "$THIS_DIR"/"$f" ~
 done
-ln -snfv ~/dotfiles/nvim ~/.config/
+ln -snfv "$THIS_DIR"/nvim ~/.config
+ln -snfv "$THIS_DIR"/settings.json ~/Library/Application\ Support/Code/User
 cat << END
 
 **************************************************

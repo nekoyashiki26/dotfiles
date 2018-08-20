@@ -73,6 +73,7 @@ set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
+set paste
 nnoremap j gj
 nnoremap k gk
 "補完メニューの高さ

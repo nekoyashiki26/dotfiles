@@ -35,28 +35,6 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
 fi
 
 
-if [ -d $HOME/.anyenv ] ; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-  for D in `\ls $HOME/.anyenv/envs`
-  do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-
-# visual studio code 
-code () {
-if [[ $# = 0 ]]
-then
-    open -a "Visual Studio Code"
-else
-    [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-    open -a "Visual Studio Code" --args "$F"
-fi
-}
-
 # Customize to your needs...
 export LANG=ja_JP.UTF-8
 
@@ -86,11 +64,11 @@ alias ls='gls --color=auto'
 alias disk='diskutil'
 alias dl='aria2c -x 16'
 alias sudo='sudo -E '
-alias sd='mac shutdown'
-alias div='ghq list --full-path > /dev/null | fzf | cd'        
-alias reboot='mac restart'
-alias ssaver='mac screensaver'
-alias lock='mac lock'
+alias sd='mac shutdown > /dev/null'
+alias div='ghq list --full-path | fzy | cd > /dev/null'        
+alias reboot='mac restart > /dev/null'
+alias ssaver='mac screensaver > /dev/null'
+alias lock='mac lock > /dev/null'
 alias load='exec $SHELL -l'
 alias c='clear'
 alias sleep='mac sleep'
@@ -238,3 +216,4 @@ function _pip_completion {
 compctl -K _pip_completion pip
 
 export PATH="/usr/local/sbin:$PATH"
+export PIPENV_VENV_IN_PROJECT=true

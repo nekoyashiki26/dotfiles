@@ -9,6 +9,7 @@
     "python.pythonPath": "/Users/nekoyashiki26/.anyenv/envs/pyenv/versions/3.6.1/bin/python",
     "vim.useSystemClipboard":true,
     "vim.cmdLineInitialColon": true,
+    "python.venvPath": ".venv",
     "vim.hlsearch": true,
     "vim.easymotion": true,
     "vim.visualstar": true,
@@ -17,6 +18,11 @@
         {
             "before": ["j","j"],
             "after": ["<Esc>"]
+        },
+        {
+            "before": ["k","k"],
+            "after": ["<Esc>"]
+ 
         }
     ],
     "vim.leader": "<space>",
@@ -31,5 +37,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "python.jediEnabled": false
 }

@@ -35,6 +35,17 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
 fi
 
 
+# .anyenv set script
+if [ -d $HOME/.anyenv ] ; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+  for D in `\ls $HOME/.anyenv/envs`
+  do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 # Customize to your needs...
 export LANG=ja_JP.UTF-8
 
@@ -65,7 +76,7 @@ alias disk='diskutil'
 alias dl='aria2c -x 16'
 alias sudo='sudo -E '
 alias sd='mac shutdown > /dev/null'
-alias div='ghq list --full-path | fzy | cd > /dev/null'        
+alias div='ghq list --full-path | grep "ghq" | fzy | cd'        
 alias reboot='mac restart > /dev/null'
 alias ssaver='mac screensaver > /dev/null'
 alias lock='mac lock > /dev/null'
@@ -202,7 +213,7 @@ setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
-source ~/go/src/github.com/nekoyashiki26/dotfiles/setproxy.sh
+source ~/ghq/github.com/nekoyashiki26/dotfiles/setproxy.sh
 
 # pip zsh completion start
 function _pip_completion {

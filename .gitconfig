@@ -11,4 +11,5 @@
 [core]
 	editor = vim -c \"set fenc=utf-8\"
 [ghq]
-	root = /Users/nekoyashiki26/go/src
+	root = ~/ghq
+	root = ~/go/src

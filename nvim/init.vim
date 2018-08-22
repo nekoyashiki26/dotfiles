@@ -40,12 +40,13 @@ if dein#check_install()
   call dein#install()
 endif
 
+
 "setting
 set clipboard=unnamed
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
-"set nobackup
+set nobackup
 " スワップファイルを作らない
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
@@ -71,9 +72,8 @@ set matchtime=1
 " ステータスラインを常に表示
 set laststatus=2
 " コマンドラインの補完
-set wildmode=list:longest
+ set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
-set paste
 nnoremap j gj
 nnoremap k gk
 "補完メニューの高さ
@@ -82,7 +82,6 @@ set pumheight=10
 set display=lastline
 "空行の挿入
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
-set whichwrap=h,l
 "Ctrキーとeキーを押したときにノーマルモードに変更してカーソルを行末に移動して、挿入モードにす
 inoremap <C-e> <Esc>$a
 " 隠しファイルをデフォルトで表示させる
@@ -115,22 +114,7 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " 矢印キーを無効にする
-"クリップボードの共有
-set clipboard=unnamed,unnamedplus
-vnoremap  <Up>     <nop>
-vnoremap  <Down>   <nop>
-vnoremap  <Left>   <nop>
-vnoremap  <Right>  <nop>
 
-"inoremap  <Up>     <nop>
-"inoremap  <Down>   <nop>
-"inoremap  <Left>   <nop>
-":inoremap  <Right>  <nop>
-
-noremap   <Up>     <nop>
-noremap   <Down>   <nop>
-noremap   <Left>   <nop>
-noremap   <Right>  <nop>
 " insertモードから抜ける
 inoremap <silent> jj <ESC>
 inoremap <silent> <C-j> j

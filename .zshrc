@@ -67,7 +67,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # エイリアス
 alias pip3='pip3'
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
-alias autoproxy='sh ~/dotfiles/autoproxy.sh'
+alias autoproxy='sh ~/ghq/github.com/nekoyashiki26/dotfiles/autoproxy.sh'
 alias pip='pip3'
 alias man='jman'
 alias la='gls --color=auto -la'
@@ -112,7 +112,7 @@ zstyle ':completion:*:default' menu select=2
 
 function bus(){
   THIS_DIR=$(cd $(dirname $0); pwd)
-  cd ~/project/lab/lab_bus
+  cd ~/ghq/github.com/nekoyashiki26/lab/lab-bus
   python3 bus.py $1
   cd $THIS_DIR
 }
@@ -128,24 +128,7 @@ function filemake(){
     fi
   done
 }
-function vpn(){
-  case $1 in 
-    on ) 
-      launchctl load -w /Library/LaunchAgents/net.juniper.pulsetray.plist;;
-    off )
-      launchctl unload -w /Library/LaunchAgents/net.juniper.pulsetray.plist;;
-    * ) 
-        echo 'invalid option'
-  esac
-}
 
-function all-kill(){
-  if [[ -n $1 ]]; then
-    ps aux | grep $1 | grep -v grep | awk '{ print "kill -9", $2 }' | zsh
-  else
-    echo 'not found process name'
-  fi
-}
 
 function all-rename(){
   if [[ -n $2 ]]; then

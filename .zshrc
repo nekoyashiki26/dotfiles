@@ -76,7 +76,6 @@ alias disk='diskutil'
 alias dl='aria2c -x 16'
 alias sudo='sudo -E '
 alias sd='mac shutdown > /dev/null'
-alias div='ghq list --full-path | grep "ghq" | fzy  > /dev/null | cd'        
 alias reboot='mac restart > /dev/null'
 alias ssaver='mac screensaver > /dev/null'
 alias lock='mac lock > /dev/null'
@@ -107,6 +106,9 @@ alias facebook='oathtool --totp --base32 $FaceBook | pbcopy'
 alias cisco_remote='ssh -oProxyCommand="ssh -W %h:%p mlab_remote" cisco'
 alias cisco='ssh -oProxyCommand="ssh -W %h:%p mlab" cisco'
 
+# cd
+alias div='ghq list --full-path | grep "ghq" | fzy  > /dev/null | cd'
+alias lab='cd ~/Documents/investigation'
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
 

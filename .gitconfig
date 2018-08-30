@@ -13,9 +13,3 @@
 [ghq]
 	root = ~/ghq
 	root = ~/go/src
-[http]
-	proxy = http://wwwproxy.kanazawa-it.ac.jp:8080
-[https]
-	proxy = http://wwwproxy.kanazawa-it.ac.jp:8080
-[url "https://"]
-	insteadOf = git://

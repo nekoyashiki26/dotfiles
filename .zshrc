@@ -4,7 +4,7 @@ fi
 
 export ZPLUG_HOME=/usr/local/opt/zplug
 if [[ -f $ZPLUG_HOME/init.zsh ]]; then
-    source $ZPLUG_HOME/init.zsh
+  source $ZPLUG_HOME/init.zsh
   # ここに、導入したいプラグインを記述します！
   # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
   zplug 'zsh-users/zsh-autosuggestions'

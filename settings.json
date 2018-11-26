@@ -26,17 +26,26 @@
         }
     ],
     "vim.leader": "<space>",
-    "vim.otherModesKeyBindings": [
-        {
-            "before": ["leader","w"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                    "args": []
-                }
-            ]
-        }
-    ],
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "latex-workshop.latex.tools": [
+    {
+        "name": "ptex2pdf",
+        "command": "ptex2pdf",
+        "args": [
+            "-u",
+            "-l",
+            "-ot",
+            "'-synctex=1 -halt-on-error -file-line-error'",
+            "%DOC%"
+        ]
+    }],
+    "latex-workshop.latex.recipes": [
+    {
+        "name": "ptex2pdf",
+        "tools": [
+            "ptex2pdf"
+        ]
+    }],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.renderControlCharacters": true
 }

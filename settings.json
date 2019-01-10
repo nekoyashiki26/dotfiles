@@ -3,7 +3,7 @@
         "editor.tabSize": 4,
         "editor.renderWhitespace":"all"
     },
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "workbench.colorTheme": "Visual Studio Dark",
     "team.showWelcomeMessage": false,
     "python.pythonPath": "/Users/nekoyashiki26/.anyenv/envs/pyenv/versions/3.6.1/bin/python",
@@ -32,18 +32,28 @@
         "name": "ptex2pdf",
         "command": "ptex2pdf",
         "args": [
-            "-u",
+            "-s",
             "-l",
             "-ot",
             "'-synctex=1 -halt-on-error -file-line-error'",
             "%DOC%"
+        ]
+    },{
+        "name":"ptex2pdf2",
+        "command": "ptex2pdf",
+        "args": [
+            "-l",
+            "-ot",
+            "'-synctex=1 -halt-on-error -file-line-error'",
+            "%DOC%"            
         ]
     }],
     "latex-workshop.latex.recipes": [
     {
         "name": "ptex2pdf",
         "tools": [
-            "ptex2pdf"
+            "ptex2pdf",
+            "ptex2pdf2"
         ]
     }],
     "latex-workshop.view.pdf.viewer": "tab",

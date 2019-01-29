@@ -212,3 +212,4 @@ compctl -K _pip_completion pip
 
 export PATH="/usr/local/sbin:$PATH"
 export PIPENV_VENV_IN_PROJECT=true
+eval "$(pipenv --completion)"

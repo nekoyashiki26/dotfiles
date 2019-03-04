@@ -3,46 +3,57 @@
 ## macのdotfile詰め合わせ
 ```
 使っているソフト
-zsh or fish
+zsh
 zplug
 neovim
 dein.vim
 ```
-## fileの内容  
+## repositoryの内容  
 ```
 README.md
-    説明用のファイル
+ 説明用のファイル
+
 .vimrc
-    vimの設定ファイル。
+ vimの設定ファイル.
+
 .zshrc
-    zshの設定ファイル aliasなんかも入ってる。
+ zshの設定ファイル aliasなんかも入ってる.
+
 .vim
-     vimのあれこれ。
+ vimのあれこれ.
+
+.gitignore
+ gitで管理しないファイルを設定する．
+
+.gitconfig
+ gitの設定ファイル.私の設定になっているので自分の設定に書き換えてください．通常の状態ではシンボリックリンクが作成されないようになっているので
+
 install.sh
-    実行するとホームディレクトリにシンボリックリンクを作成する。
-    zsh用の金沢工業大学用のプロキシ設定ファイルのシンボリックリンクを作成する。
-install_fish.sh
-    実行するとホームディレクトリにシンボリックリンクを作成する。
-    fish用の金沢工業大学用のプロキシ設定ファイルのシンボリックリンクを作成する。
+ 実行するとホームディレクトリにシンボリックリンクを作成する.zsh用の金沢工業大学用のプロキシ設定ファイルのシンボリックリンクを作成する.
+
 AutoProxy.sh 
-    proxy環境切り替え用のスクリプト
-    このファイルと~/Library/LaunchAgents/*.plistファイルを用意してlaunchctlを使ってロードすることでwifiに接続するタイミングでプロキシ環境を切り替えることができる。
+ proxy環境切り替え用のスクリプト.このファイルと~/Library/LaunchAgents/*.plistファイルを用意してlaunchctlを使ってロードすることでwifiに接続するタイミングでプロキシ環境を切り替えることができる.
+
 setting.json
-    vscodeの設定ファイル。
+ vscodeの設定ファイル.
+
 neim 
-    neovimの設定ファイル
+ neovimの設定ファイル
+
+com.googlecode.iterm2.plist
+ iTerm 2用の設定ファイル
 ```
 ## インストール
 ### git
 
 ```
-# githubからダウンロードする。
+# githubからダウンロードする.
 $ git clone https://github.com/nekoyashiki26/dotfiles.git 
 
 # ダウンロードしてきたディレクトリに移動する
 $ cd dotfiles 
 
-# シンボリックリンクを必要な場所に作成する。
+# シンボリックリンクを必要な場所に作成する.
 $ ./install.sh 
 ```
 ### ghq
@@ -50,5 +61,6 @@ $ ./install.sh
 $ ghq get nekoyashiki26/dotfiles
 $ cd ~/ghq/github.com/nekoyashiki26/dotfiles
 $ ./install.sh
+
 ```
 ---

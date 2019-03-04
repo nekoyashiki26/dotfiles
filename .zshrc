@@ -66,12 +66,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # エイリアス
 alias pip3='pip3'
-alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 alias autoproxy='sh ~/ghq/github.com/nekoyashiki26/dotfiles/autoproxy.sh'
 alias pip='pip3'
 alias la='gls --color=auto -la'
 alias ls='gls --color=auto'
-alias disk='diskutil'
 alias dl='aria2c -k 20M -s 16 -x 16'
 alias sudo='sudo -E '
 alias sd='mac shutdown > /dev/null'
@@ -85,29 +83,24 @@ alias vi='nvim'
 alias vz='nvim ~/.zshrc'
 alias vs='nvim ~/.ssh/config'
 alias sl='sl'
+
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
 alias cp='cp -ia'
 alias rm='rm -rf'
 alias diff='diff -U1'
-# 二段階認証
-alias amazon='oathtool --totp --base32 $AMAZON_KEY | pbcopy'
-alias nekotarou26='oathtool --totp --base32 $NEKOTAROU26_KEY | pbcopy'
-alias nekoyashiki26='oathtool --totp --base32 $NEKOYASHIKI26_KEY | pbcopy'
-alias nekoyaro26='oathtool --totp --base32 $NEKOYARO26_KEY | pbcopy'
-alias hurgenduttu='oathtool --totp --base32 $HURGENDUTTU_KEY | pbcopy'
-alias ddns2017='oathtool --totp --base32 $DDNS2017_KEY | pbcopy'
-alias appletiser='oathtool --totp --base32 $WINDOWS_KEY | pbcopy'
-alias kekkaisensen='oathtool --totp --base32 $KEKKAISENSEN | pbcopy'
-alias github='oathtool --totp --base32 $GitHub | pbcopy'
-alias facebook='oathtool --totp --base32 $FaceBook | pbcopy'
+
 # ssh
 alias cisco_remote='ssh -oProxyCommand="ssh -W %h:%p mlab_remote" cisco'
 alias cisco='ssh -oProxyCommand="ssh -W %h:%p mlab" cisco'
 
 # cd
 alias div='ghq list --full-path | grep "ghq" | fzy  > /dev/null | cd'
-alias lab='cd ~/Documents/investigation'
+
+#git 
+alias g='git'
+alias gget='ghq get -shallow'
+
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
 

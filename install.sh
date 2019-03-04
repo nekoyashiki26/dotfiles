@@ -49,6 +49,7 @@ if [ ! -e $GIT_CONFIG_LOCAL ]; then
     cg = config
     bra = branch -a -vv
     ls = ls-files
+    amend = commit --amend
     aliases = !git config --get-regexp alias
     pr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
     list = !hub browse -- pulls/$(git config user.name)

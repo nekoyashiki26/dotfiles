@@ -6,7 +6,7 @@
     "window.zoomLevel": 2,
     "workbench.colorTheme": "Visual Studio Dark",
     "team.showWelcomeMessage": false,
-    "python.pythonPath": "/Users/nekoyashiki26/.anyenv/envs/pyenv/versions/3.6.1/bin/python",
+    "python.pythonPath": "/Users/nekoyashiki26/.anyenv/envs/pyenv/shims/python3",
     "vim.useSystemClipboard":true,
     "vim.cmdLineInitialColon": true,
     "python.venvPath": ".venv",
@@ -57,5 +57,7 @@
         ]
     }],
     "latex-workshop.view.pdf.viewer": "tab",
-    "editor.renderControlCharacters": true
+    "editor.renderControlCharacters": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }

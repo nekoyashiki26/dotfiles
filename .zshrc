@@ -36,15 +36,7 @@ fi
 
 
 # .anyenv set script
-if [ -d $HOME/.anyenv ] ; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-  for D in `\ls $HOME/.anyenv/envs`
-  do
-    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-  done
-  eval "$(pyenv virtualenv-init -)"
-fi
+eval "$(anyenv init -)"
 
 # Customize to your needs...
 export LANG=ja_JP.UTF-8
@@ -190,7 +182,7 @@ setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
-source ~/ghq/github.com/nekoyashiki26/dotfiles/setproxy.sh
+source ~/.dotfiles/setproxy.sh
 
 # pip zsh completion start
 function _pip_completion {
@@ -205,4 +197,8 @@ compctl -K _pip_completion pip
 
 export PATH="/usr/local/sbin:$PATH"
 export PIPENV_VENV_IN_PROJECT=true
+
 eval "$(pipenv --completion)"
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_BREWFILE=~/ghq/github.com/nekoyashiki26/dotfiles/Brewfile

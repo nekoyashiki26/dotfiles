@@ -25,7 +25,7 @@ defaults write com.apple.trackpad.fourFingerVertSwipeGesture -int 2
 defaults write com.apple.trackpad.momentumScroll -int 1
 defaults write com.apple.trackpad.pinchGesture -int 1
 defaults write com.apple.trackpad.rotateGesture -int 1
-defaukts write com.apple.trackpad.scrollBehavior -int 2
+defaults write com.apple.trackpad.scrollBehavior -int 2
 defaults write com.apple.trackpad.threeFingerDragGesture -int 0
 defaults write com.apple.trackpad.threeFingerHorizSwipeGesture -int 2
 defaults write com.apple.trackpad.threeFingerTapGesture -int 2
@@ -59,13 +59,13 @@ if [ ! -x "`which mas`" ]; then
 fi
 
 # brew-file install 
-if [! -x "`which brew-file`"]; then
+if [ ! -x "`which brew-file`" ]; then
     brew install rcmdnk/file/brew-file
 fi
 
 
 # git install
-if [! -x "`which git`"]; then
+if [ ! -x "`which git`" ]; then
     brew install git
 fi
 
@@ -74,7 +74,9 @@ echo " --------- dotfiles setting start ----------"
 
 
 # dotfiles設置
-git clone --depth https://github.com/nekoyashiki26/dotfiles.git ~/.dotfiles 
+if [ ! -e ~/.dotfiles ]; then 
+    git clone --depth 1 https://github.com/nekoyashiki26/dotfiles.git ~/.dotfiles 
+fi
 ~/.dotfiles/install.sh
 
 echo " --------- app install start ----------"

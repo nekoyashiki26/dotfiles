@@ -201,4 +201,4 @@ export PIPENV_VENV_IN_PROJECT=true
 eval "$(pipenv --completion)"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export HOMEBREW_BREWFILE=~/ghq/github.com/nekoyashiki26/dotfiles/Brewfile
+export HOMEBREW_BREWFILE=~/.dotfiles/Brewfile

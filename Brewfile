@@ -2,83 +2,25 @@
 # tap repositories and their packages
 
 tap homebrew/core
-brew adns
 brew anyenv
 brew aria2
 brew arp-scan
-brew bash-completion
-brew coreutils
-brew ddrescue
 brew docker
-brew fdupes
-brew fzf
 brew fzy
 brew gcc
-brew gdbm
-brew gettext
 brew ghostscript
 brew ghq
 brew git
-brew git-crypt
-brew gmp
-brew gnupg
-brew gnutls
 brew go
-brew groff
-brew hub
-brew icu4c
-brew iproute2mac
-brew isl
-brew jemalloc
-brew jpeg
-brew ldns
-brew libassuan
-brew libevent
-brew libffi
-brew libgcrypt
-brew libgpg-error
-brew libidn2
-brew libksba
-brew libmpc
-brew libpcap
-brew libssh2
-brew libtasn1
-brew libtermkey
-brew libtiff
-brew libunistring
-brew libusb
-brew libuv
-brew libvterm
-brew luajit
 brew mas
-brew mpfr
 brew msgpack
-brew ncrack
-brew ncurses
 brew neovim
 brew netcat
-brew nettle
-brew node
-brew npth
 brew openssh
 brew openssl
-brew p11-kit
-brew pcre
-brew pcre2
-brew pinentry
-brew pinentry-mac
 brew pipenv
-brew pv
-brew python
 brew readline
-brew sqlite
-brew sshuttle
 brew tree
-brew unar
-brew unbound
-brew unibilium
-brew wget
-brew xz
 brew zlib
 brew zplug
 brew zsh
@@ -112,7 +54,7 @@ appstore 409201541 Pages (8.0)
 appstore 1085114709 Parallels Desktop Lite (1.4.0)
 appstore 1429033973 RunCat (3.9)
 appstore 1126098076 Silenz (1.1.1)
-appstore 803453959 Slack (3.4.0)
+appstore 803453959 Slack (3.4.2)
 appstore 1176895641 Spark (2.3.3)
 appstore 485812721 TweetDeck (3.16.1)
 appstore 924726344 デリバリーズ (3.2)

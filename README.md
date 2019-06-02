@@ -47,22 +47,7 @@ com.googlecode.iterm2.plist
  iTerm 2用の設定ファイル
 ```
 ## インストール
-### git
-
 ```
-# githubからダウンロードする.
-$ git clone https://github.com/nekoyashiki26/dotfiles.git 
-
-# ダウンロードしてきたディレクトリに移動する
-$ cd dotfiles 
-
-# シンボリックリンクを必要な場所に作成する.
-$ ./install.sh 
-```
-### ghq
-```
-$ ghq get nekoyashiki26/dotfiles
-$ cd ~/ghq/github.com/nekoyashiki26/dotfiles
-$ ./install.sh
-
+設定ファイルをダウンロードしてbrew-fileに書いているソフトをインストールする。
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nekoyashiki26/dotfiles/master/shellscript/install.sh)"
 ```

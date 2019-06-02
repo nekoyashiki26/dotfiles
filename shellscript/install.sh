@@ -77,7 +77,6 @@ echo " --------- dotfiles setting start ----------"
 if [ ! -e ~/.dotfiles ]; then 
     git clone --depth 1 https://github.com/nekoyashiki26/dotfiles.git ~/.dotfiles 
 fi
-~/.dotfiles/install.sh
 
 echo " --------- app install start ----------"
 
@@ -89,7 +88,7 @@ brew-file install
 echo " --------- create simbolic link start ----------"
 
 # 実行場所のディレクトリを取得
-THIS_DIR = ~/.dotfiles
+THIS_DIR=~/.dotfiles
 cd $THIS_DIR
 git submodule init
 git submodule update

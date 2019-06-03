@@ -49,5 +49,5 @@ com.googlecode.iterm2.plist
 ## インストール
 ```
 設定ファイルをダウンロードしてbrew-fileに書いているソフトをインストールする。
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/nekoyashiki26/dotfiles/master/shellscript/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nekoyashiki26/dotfiles/master/setup/install.sh)"
 ```

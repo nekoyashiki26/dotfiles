@@ -25,4 +25,4 @@ for f in .??*; do
     ln -snfv "$THIS_DIR"/"$f" ~ 1>/dev/null
 done
 ln -snfv "$THIS_DIR"/nvim/ ~/.config/nvim 1>/dev/null
-ln -snfv "$THIS_DIR"/settings.json ~/Library/Application\ Support/Code/User 1>/dev/null
+ln -snfv "$THIS_DIR"/vscode/settings.json ~/Library/Application\ Support/Code/User 1>/dev/null

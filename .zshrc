@@ -24,13 +24,13 @@ if [[ -f $ZPLUG_HOME/init.zsh ]]; then
   zplug 'yous/vanilli.sh'
   zplug 'zsh-users/zsh-history-substring-search'
   # Install plugins if there are plugins that have not been installed
-#  if ! zplug check --verbose; then
-#    printf "Install? [y/N]: "
-#    if read -q; then
-#      echo; zplug install
-#    fi
-#  fi
-# Then, source plugins and add commands to $PATH
+  #if ! zplug check --verbose; then
+    #printf "Install? [y/N]: "
+    #if read -q; then
+      #echo; zplug install
+    #fi
+  #fi
+ #Then, source plugins and add commands to $PATH
   zplug load 
 fi
 
@@ -87,7 +87,7 @@ alias cisco_remote='ssh -oProxyCommand="ssh -W %h:%p mlab_remote" cisco'
 alias cisco='ssh -oProxyCommand="ssh -W %h:%p mlab" cisco'
 
 # cd
-alias div='ghq list --full-path | grep "ghq" | fzy  > /dev/null | cd'
+alias div='ghq list --full-path | grep "ghq" | fzf  > /dev/null | cd'
 
 #git 
 alias g='git'
@@ -182,7 +182,7 @@ setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
-source ~/.dotfiles/setproxy.sh
+source ~/.dotfiles/shellscript/setproxy.sh
 
 # pip zsh completion start
 function _pip_completion {

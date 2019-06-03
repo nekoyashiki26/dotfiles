@@ -5,25 +5,52 @@ tap homebrew/core
 brew anyenv
 brew aria2
 brew arp-scan
+brew coreutils
 brew docker
-brew fzy
+brew fzf
 brew gcc
+brew gdbm
+brew gettext
 brew ghostscript
 brew ghq
 brew git
+brew gmp
 brew go
+brew isl
+brew jemalloc
+brew jpeg
+brew ldns
+brew libmpc
+brew libpcap
+brew libssh2
+brew libtermkey
+brew libtiff
+brew libuv
+brew libvterm
+brew luajit
 brew mas
+brew mpfr
 brew msgpack
+brew ncurses
 brew neovim
 brew netcat
 brew openssh
 brew openssl
+brew pcre
+brew pcre2
 brew pipenv
+brew python
 brew readline
+brew sqlite
 brew tree
+brew unibilium
+brew xz
 brew zlib
 brew zplug
 brew zsh
+
+tap homebrew/cask-fonts
+cask font-ricty-diminished
 
 tap homebrew/cask
 cask amazon-music
@@ -55,6 +82,6 @@ appstore 1085114709 Parallels Desktop Lite (1.4.0)
 appstore 1429033973 RunCat (3.9)
 appstore 1126098076 Silenz (1.1.1)
 appstore 803453959 Slack (3.4.2)
-appstore 1176895641 Spark (2.3.3)
+appstore 1176895641 Spark (2.3.6)
 appstore 485812721 TweetDeck (3.16.1)
 appstore 924726344 デリバリーズ (3.2)

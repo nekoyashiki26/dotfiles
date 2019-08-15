@@ -1,27 +1,31 @@
-export ZPLUGIN_HOME=$HOME/.zplugin/bin
-if [[ -f $ZPLUGIN_HOME/zplugin.zsh ]]; then
+
+if [[ -f $HOME/.zplugin/bin/zplugin.zsh ]]; then
   source $ZPLUGIN_HOME/zplugin.zsh
   autoload -Uz _zplugin
   (( ${+_comps} )) && _comps[zplugin]=_zplugin
   # コマンド履歴から推測し、候補として表示するプラグイン。
-  zplugin ice wait'0'; zplugin load 'zsh-users/zsh-autosuggestions'
+  zplugin ice wait'0';zplugin load 'zsh-users/zsh-autosuggestions'
   # Zshの候補選択を拡張するプラグイン。
-  zplugin ice wait'0'; zplugin load 'zsh-users/zsh-completions' 
+  zplugin ice wait'0';zplugin load 'zsh-users/zsh-completions' 
   # cdの拡張
-  zplugin ice wait'0'; zplugin load "b4b4r07/enhancd" 
+  zplugin ice wait'0';zplugin load "b4b4r07/enhancd" 
   # プロンプトのコマンドを色づけするプラグイン
-  zplugin ice wait'0'; zplugin load "zsh-users/zsh-syntax-highlighting"
+  zplugin ice wait'0';zplugin load "zsh-users/zsh-syntax-highlighting"
   # theme
-  zplugin ice wait'0'; zplugin load "agkozak/agkozak-zsh-theme"
+  zplugin load "agkozak/agkozak-zsh-theme"
   #zplugin load 'yous/lime'
   # シェルの設定を色々いい感じにやってくれる。
-  zplugin ice wait'0'; zplugin load 'yous/vanilli.sh' 
-  zplugin ice wait'0'; zplugin load 'zsh-users/zsh-history-substring-search' 
+  zplugin ice wait'0';zplugin load 'yous/vanilli.sh' 
+  zplugin ice wait'0';zplugin load 'zsh-users/zsh-history-substring-search' 
 
 fi
 
 
 #----------zsh setting----------
+fpath=(/usr/local/share/zsh-completions $fpath)
+autoload -U compinit
+compinit -u
+
 # history
 HISTFILE=~/.zsh_historyx
 HISTSIZE=10000
@@ -34,7 +38,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 色を使用
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
-#zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
+zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 ## 補完候補をキャッシュする。
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path ~/.zsh/cache
@@ -45,13 +49,13 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 setopt no_beep  # 補完候補がないときなどにビープ音を鳴らさない。
 #setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
 setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演算を実行
-#setopt transient_rprompt  # コマンド実行後は右プロンプトを消す
+setopt transient_rprompt  # コマンド実行後は右プロンプトを消す
 setopt hist_ignore_all_dups # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
 setopt hist_save_no_dups # 古いコマンドと同じものは無視 
 setopt hist_reduce_blanks
 setopt hist_no_store
 setopt share_history  # シェルのプロセスごとに履歴を共有
-#setopt extended_history  # 履歴ファイルに時刻を記録
+setopt extended_history  # 履歴ファイルに時刻を記録
 setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
 setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
@@ -60,8 +64,6 @@ setopt complete_in_word  # カーソル位置で補完する。
 
 #----------system settingu----------
 #source ~/.dotfiles/shellscript/setproxy.sh
-#fpath=(/path/to/homebrew/share/zsh-completions $fpath)
-
 # .znyenv
 # .anyenv set script
 eval "$(anyenv init - --no-rehash)"
@@ -131,7 +133,6 @@ alias cisco='ssh -oProxyCommand="ssh -W %h:%p mlab" cisco'
 alias div='ghq list --full-path | grep "ghq" | fzf  > /dev/null | cd'
 
 #git 
-alias g='git'
 alias gget='ghq get -shallow'
 
 # show history using fzf

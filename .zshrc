@@ -1,80 +1,121 @@
-if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-   zcompile ~/.zshrc
-fi
-
-export ZPLUG_HOME=/usr/local/opt/zplug
-if [[ -f $ZPLUG_HOME/init.zsh ]]; then
-  source $ZPLUG_HOME/init.zsh
-  # ここに、導入したいプラグインを記述します！
-  # 入力中のコマンドをコマンド履歴から推測し、候補として表示するプラグイン。
-  zplug 'zsh-users/zsh-autosuggestions'
+export ZPLUGIN_HOME=$HOME/.zplugin/bin
+if [[ -f $ZPLUGIN_HOME/zplugin.zsh ]]; then
+  source $ZPLUGIN_HOME/zplugin.zsh
+  autoload -Uz _zplugin
+  (( ${+_comps} )) && _comps[zplugin]=_zplugin
+  # コマンド履歴から推測し、候補として表示するプラグイン。
+  zplugin ice wait'0'; zplugin load 'zsh-users/zsh-autosuggestions'
   # Zshの候補選択を拡張するプラグイン。
-  zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
-
+  zplugin ice wait'0'; zplugin load 'zsh-users/zsh-completions' 
   # cdの拡張
-  zplug "b4b4r07/enhancd", use:init.sh
-
+  zplugin ice wait'0'; zplugin load "b4b4r07/enhancd" 
   # プロンプトのコマンドを色づけするプラグイン
-  # compinit 以降に読み込むようにロードの優先度を変更する
-  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+  zplugin ice wait'0'; zplugin load "zsh-users/zsh-syntax-highlighting"
   # theme
-  zplug "agkozak/agkozak-zsh-theme"
-  #zplug 'yous/lime'
+  zplugin ice wait'0'; zplugin load "agkozak/agkozak-zsh-theme"
+  #zplugin load 'yous/lime'
   # シェルの設定を色々いい感じにやってくれる。
-  zplug 'yous/vanilli.sh'
-  zplug 'zsh-users/zsh-history-substring-search'
-  # Install plugins if there are plugins that have not been installed
-  #if ! zplug check --verbose; then
-    #printf "Install? [y/N]: "
-    #if read -q; then
-      #echo; zplug install
-    #fi
-  #fi
- #Then, source plugins and add commands to $PATH
-  zplug load 
+  zplugin ice wait'0'; zplugin load 'yous/vanilli.sh' 
+  zplugin ice wait'0'; zplugin load 'zsh-users/zsh-history-substring-search' 
+
 fi
 
 
-# .anyenv set script
-eval "$(anyenv init -)"
-
-# Customize to your needs...
-export LANG=ja_JP.UTF-8
-
-# brew install時のupdateを禁止
-export HOMEBREW_NO_AUTO_UPDATE=1
+#----------zsh setting----------
+# history
+HISTFILE=~/.zsh_historyx
+HISTSIZE=10000
+SAVEHIST=10000
 
 # 補完候補のカーソル選択を有効にする設定
 zstyle ':completion:*:default' menu select=1
-
-fpath=(/path/to/homebrew/share/zsh-completions $fpath)
-
-# init.vimのpath
-export XDG_CONFIG_HOME="$HOME/.config"
-
 #補完を大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 色を使用
+# 補完後、メニュー選択モードになり左右キーで移動が出来る
+zstyle ':completion:*:default' menu select=2
+#zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
+## 補完候補をキャッシュする。
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.zsh/cache
+## 詳細な情報を使わない
+zstyle ':completion:*' verbose no
+## sudo の時にコマンドを探すパス
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+setopt no_beep  # 補完候補がないときなどにビープ音を鳴らさない。
+#setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
+setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演算を実行
+#setopt transient_rprompt  # コマンド実行後は右プロンプトを消す
+setopt hist_ignore_all_dups # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_save_no_dups # 古いコマンドと同じものは無視 
+setopt hist_reduce_blanks
+setopt hist_no_store
+setopt share_history  # シェルのプロセスごとに履歴を共有
+#setopt extended_history  # 履歴ファイルに時刻を記録
+setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
+setopt auto_list  # 補完候補が複数ある時に、一覧表示
+setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
+unsetopt list_beep
+setopt complete_in_word  # カーソル位置で補完する。
 
-# エイリアス
-alias pip3='pip3'
-alias autoproxy='sh ~/ghq/github.com/nekoyashiki26/dotfiles/autoproxy.sh'
-alias pip='pip3'
+#----------system settingu----------
+#source ~/.dotfiles/shellscript/setproxy.sh
+#fpath=(/path/to/homebrew/share/zsh-completions $fpath)
+
+# .znyenv
+# .anyenv set script
+eval "$(anyenv init - --no-rehash)"
+
+# system lang
+# Customize to your needs...
+export LANG=ja_JP.UTF-8
+
+# homebrew
+# brew install時のupdateを禁止
+export HOMEBREW_NO_AUTO_UPDATE=1
+# homebrew cask save Application in the directory
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# brewfile path
+export HOMEBREW_BREWFILE=~/.dotfiles/Brewfile
+
+# pip setting
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+
+# path
+# add path
+export PATH="/usr/local/sbin:$PATH"
+
+# pipenv
+# virtual env create project file
+export PIPENV_VENV_IN_PROJECT=true
+# pipenv completion
+eval "$(pipenv --completion)"
+
+# neovim 
+# init.vimのpath
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# alias
 alias la='gls --color=auto -la'
 alias ls='gls --color=auto'
 alias dl='aria2c -k 20M -s 16 -x 16'
 alias sudo='sudo -E '
 alias sd='mac shutdown > /dev/null'
 alias reboot='mac restart > /dev/null'
-alias ssaver='mac screensaver > /dev/null'
-alias lock='mac lock > /dev/null'
-alias load='exec $SHELL -l'
+alias load='exec zsh -l'
 alias c='clear'
-alias sleep='mac sleep'
 alias vi='nvim'
 alias vz='nvim ~/.zshrc'
 alias vs='nvim ~/.ssh/config'
-alias sl='sl'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
@@ -93,55 +134,7 @@ alias div='ghq list --full-path | grep "ghq" | fzf  > /dev/null | cd'
 alias g='git'
 alias gget='ghq get -shallow'
 
-# 補完後、メニュー選択モードになり左右キーで移動が出来る
-zstyle ':completion:*:default' menu select=2
-
-function bus(){
-  THIS_DIR=$(cd $(dirname $0); pwd)
-  cd ~/ghq/github.com/nekoyashiki26/lab/lab-bus
-  python3 bus.py $1
-  cd $THIS_DIR
-}
-
-function filemake(){
-  for i in `seq ${2}`
-  do
-    filename=${1}`printf %03d ${i}`
-    if [[ -d ${filename} ]]; then
-      echo "$filename exists!"
-    else
-      mkdir ${filename}
-    fi
-  done
-}
-
-
-function all-rename(){
-  if [[ -n $2 ]]; then
-    count=0
-    newfile=$1
-    filetype=$2
-    ls -ltr *.${filetype} | while read line
-    do
-      (( count++ ))
-      filename=$(awk '{print $NF}' <<<${line})
-      echo "${filename} -> $newfile`printf %04d $count`.${filename##*.}"
-      mv $filename "$newfile`printf %04d $count`.${filename##*.}"
-    done
-  elif [[ -n $1 ]]; then
-    count=0
-    newfile=$1
-    ls -ltr * | while read line
-    do
-      (( count++ ))
-      filename=$(awk '{print $NF}' <<<${line})
-      mv $filename "$newfile`printf %04d $count`.${filename##*.}"
-    done
-  else
-    echo 'please enter new file name'
-  fi
-}
-
+# show history using fzf
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
@@ -149,56 +142,6 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
-zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
-
-HISTFILE=~/.zsh_historyx
-HISTSIZE=10000
-SAVEHIST=10000
-
-## 補完候補をキャッシュする。
-zstyle ':completion:*' use-cache yes
-zstyle ':completion:*' cache-path ~/.zsh/cache
-## 詳細な情報を使わない
-zstyle ':completion:*' verbose no
-
-## sudo の時にコマンドを探すパス
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
-
-setopt no_beep  # 補完候補がないときなどにビープ音を鳴らさない。
-setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
-setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演算を実行
-setopt transient_rprompt  # コマンド実行後は右プロンプトを消す
-# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
-setopt hist_ignore_all_dups
-# 古いコマンドと同じものは無視 
-setopt hist_save_no_dups
-setopt hist_reduce_blanks
-setopt hist_no_store
-setopt hist_verify
-setopt share_history  # シェルのプロセスごとに履歴を共有
-setopt extended_history  # 履歴ファイルに時刻を記録
-setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
-setopt auto_list  # 補完候補が複数ある時に、一覧表示
-setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
-unsetopt list_beep
-setopt complete_in_word  # カーソル位置で補完する。
-#source ~/.dotfiles/shellscript/setproxy.sh
-
-# pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-
-export PATH="/usr/local/sbin:$PATH"
-export PIPENV_VENV_IN_PROJECT=true
-
-eval "$(pipenv --completion)"
-
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export HOMEBREW_BREWFILE=~/.dotfiles/Brewfile
+if (which zprof > /dev/null) ;then
+  zprof | less
+fi

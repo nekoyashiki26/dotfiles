@@ -98,7 +98,7 @@ export PATH="/usr/local/sbin:$PATH"
 # virtual env create project file
 export PIPENV_VENV_IN_PROJECT=true
 # pipenv completion
-eval "$(pipenv --completion)"
+#eval "$(pipenv --completion)"
 
 # neovim 
 # init.vimのpath

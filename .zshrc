@@ -1,6 +1,6 @@
 
 if [[ -f $HOME/.zplugin/bin/zplugin.zsh ]]; then
-  source $ZPLUGIN_HOME/zplugin.zsh
+  source $HOME/.zplugin/bin/zplugin.zsh
   autoload -Uz _zplugin
   (( ${+_comps} )) && _comps[zplugin]=_zplugin
   # コマンド履歴から推測し、候補として表示するプラグイン。
@@ -47,7 +47,7 @@ zstyle ':completion:*' verbose no
 ## sudo の時にコマンドを探すパス
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 setopt no_beep  # 補完候補がないときなどにビープ音を鳴らさない。
-#setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
+setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
 setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演算を実行
 setopt transient_rprompt  # コマンド実行後は右プロンプトを消す
 setopt hist_ignore_all_dups # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
@@ -126,8 +126,7 @@ alias rm='rm -rf'
 alias diff='diff -U1'
 
 # ssh
-alias cisco_remote='ssh -oProxyCommand="ssh -W %h:%p mlab_remote" cisco'
-alias cisco='ssh -oProxyCommand="ssh -W %h:%p mlab" cisco'
+#alias ssh='auto_ssh'
 
 # cd
 alias div='ghq list --full-path | grep "ghq" | fzf  > /dev/null | cd'
@@ -135,6 +134,7 @@ alias div='ghq list --full-path | grep "ghq" | fzf  > /dev/null | cd'
 #git 
 alias gget='ghq get -shallow'
 
+# ---------- custom command ----------
 # show history using fzf
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
@@ -143,6 +143,20 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
+function auto_ssh(){
+    SSID=`networksetup -getairportnetwork en0 |cut -d':' -f2|cut -b 2-`;
+    case "$SSID" in
+        "OSCAR1")
+            ln -snfv ~/.ssh/conf/innerssh.conf ~/.ssh/config
+            ;;
+        *)
+            ln -snfv ~/.ssh/conf/outerssh.conf ~/.ssh/config
+            ;;
+    esac
+    #unalias ssh;
+    ssh $1;
+    #alias ssh='auto_ssh'
+}
 if (which zprof > /dev/null) ;then
   zprof | less
 fi

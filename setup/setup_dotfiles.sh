@@ -7,7 +7,7 @@ fi
 echo " --------- create simbolic link start ----------"
 
 # 実行場所のディレクトリを取得
-THIS_DIR=pwd
+THIS_DIR=`pwd`
 INSTALL_DIR=`ghq list -p | grep dotfiles`
 cd $INSTALL_DIR
 git submodule init
@@ -27,6 +27,8 @@ for f in .??*; do
 done
 
 ln -snfv "$INSTALL_DIR"/nvim/ ~/.config/nvim 1>/dev/null
-ln -snfv "$INSTALL_DIR"/vscode/settings.json ~/Library/Application\ Support/Code/User 1>/dev/null
+if [ -e ~/Library/Application\ Support/Code/ ]; then
+    ln -snfv "$INSTALL_DIR"/vscode/settings.json ~/Library/Application\ Support/Code/User 1>/dev/null
+fi
 
 cd $THIS_DIR

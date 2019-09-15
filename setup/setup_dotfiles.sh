@@ -1,14 +1,15 @@
 #!/bin/bash
 # dotfiles設置
-if [ ! -e ~/.dotfiles ]; then 
-    git clone --depth 1 https://github.com/nekoyashiki26/dotfiles.git ~/.dotfiles 
+if [ ! -e `ghq list -p | grep dotfiles` ]; then 
+    ghq get -shallow https://github.com/nekoyashiki26/dotfiles.git
 fi
 
 echo " --------- create simbolic link start ----------"
 
 # 実行場所のディレクトリを取得
-THIS_DIR=~/.dotfiles
-cd $THIS_DIR
+THIS_DIR=pwd
+INSTALL_DIR=`ghq list -p | grep dotfiles`
+cd $INSTALL_DIR
 git submodule init
 git submodule update
 
@@ -22,7 +23,10 @@ for f in .??*; do
     [ "$f" = ".gitattributes" ] && continue
     [ "$f" = ".git-crypt" ] && continue
 
-    ln -snfv "$THIS_DIR"/"$f" ~ 1>/dev/null
+    ln -snfv "$INSTALL_DIR"/"$f" ~ 1>/dev/null
 done
-ln -snfv "$THIS_DIR"/nvim/ ~/.config/nvim 1>/dev/null
-ln -snfv "$THIS_DIR"/vscode/settings.json ~/Library/Application\ Support/Code/User 1>/dev/null
+
+ln -snfv "$INSTALL_DIR"/nvim/ ~/.config/nvim 1>/dev/null
+ln -snfv "$INSTALL_DIR"/vscode/settings.json ~/Library/Application\ Support/Code/User 1>/dev/null
+
+cd $THIS_DIR

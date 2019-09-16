@@ -15,6 +15,7 @@ fi
 
 # go install
 if [ ! -x "`which go`" ]; then
+    echo '-----go------'
     su -l $USERNAME -c "brew install go"
     su -l $USERNAME -c "export GOPATH=$HOME"
     su -l $USERNAME -c "export PATH=$PATH:$GOPATH/bin"
@@ -22,6 +23,7 @@ fi
 
 # ghq install
 if [ ! -x "`which ghq`" ]; then
+    echo '-----ghq------'
     su -l $USERNAME -c "brew install ghq"
     su -l $USERNAME -c "git config --global ghq.root ~/src"
 fi

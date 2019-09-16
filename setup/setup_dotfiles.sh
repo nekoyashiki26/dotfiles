@@ -1,6 +1,9 @@
 #!/bin/bash
 # dotfiles設置
-if [ ! -e `ghq list -p | grep dotfiles` ]; then 
+
+DOT_FILES=`ghq list -p | grep dotfiles`
+echo $DOT_FILES
+if [ ! -e $DOT_FILES ]; then 
     ghq get -shallow https://github.com/nekoyashiki26/dotfiles.git
 fi
 

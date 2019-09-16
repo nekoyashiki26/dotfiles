@@ -23,6 +23,6 @@ fi
 # ghq install
 if [ ! -x "`which ghq`" ]; then
     su -l $USERNAME -c "brew install ghq"
+    su -l $USERNAME -c "git config --global ghq.root ~/src"
 fi
 
-su -l $USERNAME -c "git config --global ghq.root ~/src"

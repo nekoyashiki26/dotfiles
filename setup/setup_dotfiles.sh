@@ -1,9 +1,7 @@
 #!/bin/bash
 # dotfiles設置
 
-if [ ! -d ~/.ghq ]; then 
-    ghq get -shallow https://github.com/nekoyashiki26/dotfiles.git
-fi
+ghq get -shallow https://github.com/nekoyashiki26/dotfiles.git
 
 echo " --------- create simbolic link start ----------"
 

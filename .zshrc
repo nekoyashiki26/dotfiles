@@ -126,6 +126,7 @@ alias diff='diff -U1'
 
 # ssh
 #alias ssh='auto_ssh'
+alias b-route='sudo route -nv add -net 153.156.70.51 192.168.179.1'
 
 # cd
 alias div='ghq list --full-path | grep "ghq" | fzf  > /dev/null | cd'

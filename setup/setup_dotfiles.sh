@@ -1,8 +1,7 @@
 #!/bin/bash
 # dotfiles設置
 
-
-if [ ! -e "~/.ghq/github.com/nekoyashiki26/dotfiles" ]; then
+if [ ! -e ~/.ghq/github.com/nekoyashiki26/dotfiles ]; then
     ghq get -shallow https://github.com/nekoyashiki26/dotfiles.git
 fi
 echo " --------- create simbolic link start ----------"
@@ -27,8 +26,8 @@ for f in .??*; do
     ln -snfv "$INSTALL_DIR"/"$f" ~ 1>/dev/null
 done
 
-if [ ! -e "~/.config" ]; then
-    mkdir "~/.config"
+if [ ! -e ~/.config ]; then
+    mkdir ~/.config
 fi
 ln -snfv "$INSTALL_DIR"/nvim/ ~/.config/nvim 1>/dev/null
 if [ -e "~/Library/Application\ Support/Code/" ]; then

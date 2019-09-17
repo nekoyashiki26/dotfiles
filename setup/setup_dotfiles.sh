@@ -25,8 +25,11 @@ for f in .??*; do
     ln -snfv "$INSTALL_DIR"/"$f" ~ 1>/dev/null
 done
 
+if [ -e "~/.config" ]; then
+    mkdir "~/.config"
+fi
 ln -snfv "$INSTALL_DIR"/nvim/ ~/.config/nvim 1>/dev/null
-if [ -e ~/Library/Application\ Support/Code/ ]; then
+if [ -e "~/Library/Application\ Support/Code/" ]; then
     ln -snfv "$INSTALL_DIR"/vscode/settings.json ~/Library/Application\ Support/Code/User 1>/dev/null
 fi
 

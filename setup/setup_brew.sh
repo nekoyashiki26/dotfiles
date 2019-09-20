@@ -24,6 +24,6 @@ fi
 if [ ! -x "`which ghq`" ]; then
     echo '-----ghq------'
     brew install ghq
-    git config --global ghq.root ~/src
+    git config --global ghq.root ~/.ghq
 fi
 

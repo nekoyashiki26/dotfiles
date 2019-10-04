@@ -54,7 +54,7 @@ defaults write com.apple.finder AppleShowAllFiles YES
 # Automatically hide or show the Dock
 defaults write com.apple.dock autohide -bool true
 # Wipe all app icons from the Dock
-defaults write com.apple.dock persistent-apps -array
+#defaults write com.apple.dock persistent-apps -array
 # Magnificate the Dock （Dock の拡大機能を入にする）
 defaults write com.apple.dock magnification -bool true
 

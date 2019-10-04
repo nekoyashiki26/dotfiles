@@ -5,7 +5,7 @@ source $HOME/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 # コマンド履歴から推測し、候補として表示するプラグイン。
-zplugin ice wait'0';zplugin load 'zsh-users/zsh-autosuggestions'
+zplugin load 'zsh-users/zsh-autosuggestions'
 # Zshの候補選択を拡張するプラグイン。
 zplugin ice wait'0';zplugin load 'zsh-users/zsh-completions' 
 # cdの拡張

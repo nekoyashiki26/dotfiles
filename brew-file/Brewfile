@@ -53,7 +53,7 @@ tap homebrew/cask-fonts
 cask font-ricty-diminished
 
 tap homebrew/cask
-cask amazon-music
+#cask amazon-music
 cask daisydisk
 cask google-chrome
 cask shiftit

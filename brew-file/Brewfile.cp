@@ -9,29 +9,57 @@ brew coreutils
 brew docker
 brew fzf
 brew gcc
+brew gdbm
+brew gettext
 brew ghostscript
 brew ghq
 brew git
+brew gmp
 brew go
 brew isl
+brew jemalloc
+brew jpeg
+brew ldns
+brew libmpc
+brew libpcap
+brew libssh2
+brew libtermkey
+brew libtiff
+brew libuv
+brew libvterm
+brew luajit
 brew mas
+brew mpfr
+brew msgpack
+brew ncurses
 brew neovim
 brew netcat
 brew openssh
 brew openssl
+brew pcre
+brew pcre2
+brew pipenv
+brew python
 brew readline
+brew sqlite
 brew tree
+brew unibilium
 brew xz
 brew zlib
+brew zplug
 brew zsh
 
 tap homebrew/cask-fonts
 cask font-ricty-diminished
 
 tap homebrew/cask
+#cask amazon-music
 cask daisydisk
 cask google-chrome
 cask shiftit
+cask wireshark
+
+tap argon/mas
 
 tap rcmdnk/file
 brew brew-file
@@ -44,6 +72,7 @@ cask visual-studio-code
 
 # App Store applications
 appstore 1333542190 1Password 7 (7.3)
+appstore 944960179 AnyDo (3.2.1)
 appstore 409183694 Keynote (9.0.2)
 appstore 405399194 Kindle (1.26.1)
 appstore 539883307 LINE (5.16.2)

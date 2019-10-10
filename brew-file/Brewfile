@@ -26,7 +26,7 @@ brew zlib
 brew zsh
 
 tap homebrew/cask-fonts
-cask font-ricty-diminished
+#cask font-ricty-diminished
 
 tap homebrew/cask
 cask daisydisk

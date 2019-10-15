@@ -1,3 +1,4 @@
+#----------zsh plugin----------
 if [[ ! -f $HOME/.zplugin/bin/zplugin.zsh ]]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 fi
@@ -61,50 +62,6 @@ setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示
 unsetopt list_beep
 setopt complete_in_word  # カーソル位置で補完する。
 
-#----------system settingu----------
-#source ~/.dotfiles/shellscript/setproxy.sh
-# .znyenv
-# .anyenv set script
-eval "$(anyenv init - --no-rehash)"
-
-# system lang
-# Customize to your needs...
-export LANG=ja_JP.UTF-8
-
-# homebrew
-# brew install時のupdateを禁止
-export HOMEBREW_NO_AUTO_UPDATE=1
-# homebrew cask save Application in the directory
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-# brewfile path
-export HOMEBREW_BREWFILE=~/.dotfiles/Brewfile
-
-# pip setting
-# pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-
-# path
-# add path
-export PATH="/usr/local/sbin:$PATH"
-
-# pipenv
-# virtual env create project file
-export PIPENV_VENV_IN_PROJECT=true
-# pipenv completion
-#eval "$(pipenv --completion)"
-
-# neovim 
-# init.vimのpath
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # alias
 alias la='gls --color=auto -la'
 alias ls='gls --color=auto'
@@ -157,6 +114,50 @@ function auto_ssh(){
     ssh $1;
     #alias ssh='auto_ssh'
 }
+
+#----------Applications setting----------
+#source ~/.dotfiles/shellscript/setproxy.sh
+# .znyenv
+# .anyenv set script
+eval "$(anyenv init - --no-rehash)"
+
+# system lang
+export LANG=ja_JP.UTF-8
+
+# homebrew
+# brew install時のupdateを禁止
+export HOMEBREW_NO_AUTO_UPDATE=1
+# homebrew cask save Application in the directory
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# brewfile path
+export HOMEBREW_BREWFILE=~/.dotfiles/Brewfile
+
+# pip setting
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+
+# path
+# add path
+export PATH="/usr/local/sbin:$PATH"
+
+# pipenv
+# virtual env create project file
+export PIPENV_VENV_IN_PROJECT=true
+# pipenv completion
+#eval "$(pipenv --completion)"
+
+# neovim 
+# init.vimのpath
+export XDG_CONFIG_HOME="$HOME/.config"
+
 if (which zprof > /dev/null) ;then
   zprof | less
 fi

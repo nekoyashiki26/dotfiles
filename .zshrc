@@ -130,7 +130,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # homebrew cask save Application in the directory
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # brewfile path
-export HOMEBREW_BREWFILE=~/.dotfiles/Brewfile
+export HOMEBREW_BREWFILE=`ghq list -p | grep dotfiles`/brew-file/Brewfile
 
 # pip setting
 # pip zsh completion start

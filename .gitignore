@@ -1,0 +1,7 @@
+.DS_Store
+.python-version
+.venv
+Pipfile.lock
+__pycache__
+.vscode
+

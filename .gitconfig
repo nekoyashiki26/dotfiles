@@ -1,0 +1,21 @@
+[alias]
+    co = checkout
+    st = status
+    cm = commit -m
+    br = branch
+    cg = config
+    bra = branch -a -vv
+    ls = ls-files
+    aliases = !git config --get-regexp alias
+    pr = !hub browse -- pull/master
+    list = !hub browse -- pulls/
+    aliases = !git config --get-regexp alias |  sed 's/^alias.//g' | sed 's/ / = /1'
+    
+[user]
+    naem = YoshinoriYamaguchi
+    email = b1518292@planet.kanazawa-it.ac.jp
+[core]
+    editor = vim -c \"set fenc=utf-8\"
+[ghq]
+    root = ~/.ghq
+    root = ~/.go/src

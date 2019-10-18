@@ -8,17 +8,18 @@ autoload -Uz _zplugin
 # コマンド履歴から推測し、候補として表示するプラグイン。
 zplugin load 'zsh-users/zsh-autosuggestions'
 # Zshの候補選択を拡張するプラグイン。
-zplugin ice wait'0';zplugin load 'zsh-users/zsh-completions' 
+zplugin load 'zsh-users/zsh-completions' 
 # cdの拡張
-zplugin ice wait'0';zplugin load "b4b4r07/enhancd" 
+zplugin load "b4b4r07/enhancd" 
 # プロンプトのコマンドを色づけするプラグイン
-zplugin ice wait'0';zplugin load "zsh-users/zsh-syntax-highlighting"
+zplugin load "zsh-users/zsh-syntax-highlighting"
 # theme
-zplugin load "agkozak/agkozak-zsh-theme"
+#zplugin load "agkozak/agkozak-zsh-theme"
 #zplugin load 'yous/lime'
+zplugin load 'sindresorhus/pure'
 # シェルの設定を色々いい感じにやってくれる。
-zplugin ice wait'0';zplugin load 'yous/vanilli.sh' 
-zplugin ice wait'0';zplugin load 'zsh-users/zsh-history-substring-search' 
+zplugin load 'yous/vanilli.sh' 
+zplugin load 'zsh-users/zsh-history-substring-search'
 
 
 #----------zsh setting----------
@@ -130,8 +131,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # homebrew cask save Application in the directory
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # brewfile path
-export HOMEBREW_BREWFILE=~/.dotfiles/Brewfile
-
+export HOMEBREW_BREWFILE=`ghq list -p | grep dotfiles`/brew-file/Brewfile
 # pip setting
 # pip zsh completion start
 function _pip_completion {

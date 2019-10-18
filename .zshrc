@@ -19,7 +19,7 @@ zplugin load "zsh-users/zsh-syntax-highlighting"
 zplugin load 'sindresorhus/pure'
 # シェルの設定を色々いい感じにやってくれる。
 zplugin load 'yous/vanilli.sh' 
-zplugin load 'zsh-users/zsh-history-substring-search' K
+zplugin load 'zsh-users/zsh-history-substring-search'
 
 
 #----------zsh setting----------

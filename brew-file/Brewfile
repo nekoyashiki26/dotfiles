@@ -6,7 +6,7 @@ brew anyenv
 brew aria2
 brew arp-scan
 brew coreutils
-brew docker
+#brew docker
 brew fzf
 brew gcc
 brew ghostscript

@@ -21,7 +21,6 @@ zplugin load 'sindresorhus/pure'
 zplugin load 'yous/vanilli.sh' 
 zplugin load 'zsh-users/zsh-history-substring-search'
 
-
 #----------zsh setting----------
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
@@ -161,3 +160,4 @@ export XDG_CONFIG_HOME="$HOME/.config"
 if (which zprof > /dev/null) ;then
   zprof | less
 fi
+

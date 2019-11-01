@@ -14,9 +14,9 @@ zplugin load "b4b4r07/enhancd"
 # プロンプトのコマンドを色づけするプラグイン
 zplugin load "zsh-users/zsh-syntax-highlighting"
 # theme
-#zplugin load "agkozak/agkozak-zsh-theme"
+zplugin load "agkozak/agkozak-zsh-theme"
 #zplugin load 'yous/lime'
-zplugin load 'sindresorhus/pure'
+#zplugin load 'sindresorhus/pure'
 # シェルの設定を色々いい感じにやってくれる。
 zplugin load 'yous/vanilli.sh' 
 zplugin load 'zsh-users/zsh-history-substring-search'
@@ -88,9 +88,11 @@ alias b-route='sudo route -nv add -net 153.156.70.51 192.168.179.1'
 # cd
 alias div='ghq list --full-path | grep "ghq" | fzf  > /dev/null | cd'
 
-#git 
+#ghq 
 alias gget='ghq get -shallow'
 
+# pipenv
+alias penv='pipenv --python 3.7.0 && pipenv lock && pipenv shell'
 # ---------- custom command ----------
 # show history using fzf
 function select-history() {

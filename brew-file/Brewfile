@@ -7,6 +7,7 @@ brew aria2
 brew arp-scan
 brew bash-completion
 brew coreutils
+brew docker
 brew fdupes
 brew fzf
 brew gcc
@@ -18,6 +19,7 @@ brew gmp
 brew go
 brew isl
 brew jpeg
+brew jq
 brew ldns
 brew libidn2
 brew libmpc
@@ -35,6 +37,7 @@ brew msgpack
 brew ncurses
 brew neovim
 brew netcat
+brew oniguruma
 brew openssh
 brew openssl
 brew openssl@1.1
@@ -54,7 +57,8 @@ tap homebrew/cask-fonts
 tap homebrew/cask
 cask balenaetcher
 cask docker
-cask iterm2
+cask google-japanese-ime
+cask skype
 
 tap rcmdnk/file
 brew brew-file
@@ -62,15 +66,21 @@ brew brew-file
 # Other Cask applications
 cask daisydisk
 cask google-chrome
+cask iterm2
 cask visual-studio-code
 
 # App Store applications
 appstore 1333542190 1Password 7 (7.3.2)
+appstore 924726344 Deliveries (3.2.1)
 appstore 409183694 Keynote (9.2)
 appstore 405399194 Kindle (1.26.1)
+appstore 539883307 LINE (5.20.0)
 appstore 409203825 Numbers (6.2)
 appstore 409201541 Pages (8.2)
 appstore 1085114709 Parallels Desktop Lite (1.4.0)
-appstore 1429033973 RunCat (5.1)
+appstore 1429033973 RunCat (6.1)
+appstore 1126098076 Silenz (1.2.0)
 appstore 803453959 Slack (4.1.0)
+appstore 1176895641 Spark (2.3.14)
 appstore 485812721 TweetDeck (3.16.1)
+appstore 1482454543 Twitter (8.1.1)

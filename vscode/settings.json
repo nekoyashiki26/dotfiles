@@ -27,36 +27,6 @@
     ],
     "vim.leader": "<space>",
     "python.jediEnabled": false,
-    "latex-workshop.latex.tools": [
-    {
-        "name": "ptex2pdf",
-        "command": "ptex2pdf",
-        "args": [
-            "-s",
-            "-l",
-            "-ot",
-            "'-synctex=1 -halt-on-error -file-line-error'",
-            "%DOC%"
-        ]
-    },{
-        "name":"ptex2pdf2",
-        "command": "ptex2pdf",
-        "args": [
-            "-l",
-            "-ot",
-            "'-synctex=1 -halt-on-error -file-line-error'",
-            "%DOC%"            
-        ]
-    }],
-    "latex-workshop.latex.recipes": [
-    {
-        "name": "ptex2pdf",
-        "tools": [
-            "ptex2pdf",
-            "ptex2pdf2"
-        ]
-    }],
-    "latex-workshop.view.pdf.viewer": "tab",
     "editor.renderControlCharacters": true,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"

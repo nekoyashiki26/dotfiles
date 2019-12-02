@@ -6,7 +6,7 @@
     "window.zoomLevel": 2,
     "workbench.colorTheme": "Visual Studio Dark",
     "team.showWelcomeMessage": false,
-    "python.pythonPath": "/Users/nekoyashiki26/.anyenv/envs/pyenv/shims/python3",
+    "python.pythonPath": "/Users/com/.anyenv/envs/pyenv/versions/3.7.0/bin/python",
     "vim.useSystemClipboard":true,
     "vim.cmdLineInitialColon": true,
     "python.venvPath": ".venv",

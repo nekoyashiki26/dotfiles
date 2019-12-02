@@ -2,10 +2,14 @@
 # tap repositories and their packages
 
 tap homebrew/core
+brew afflib
 brew anyenv
 brew aria2
 brew arp-scan
+brew augeas
+brew autoconf
 brew bash-completion
+brew boost
 brew coreutils
 brew docker
 brew fdupes
@@ -13,25 +17,38 @@ brew fzf
 brew gcc
 brew gdbm
 brew gettext
+brew gflags
 brew ghostscript
 brew ghq
 brew git
+brew glog
 brew gmp
 brew go
+brew icu4c
 brew isl
+brew jansson
 brew jpeg
 brew jq
 brew ldns
+brew libarchive
+brew libevent
+brew libewf
 brew libidn2
+brew libmagic
 brew libmpc
 brew libpcap
+brew libpq
+brew librdkafka
 brew libssh2
 brew libtermkey
 brew libtiff
 brew libunistring
 brew libuv
 brew libvterm
+brew lldpd
 brew luajit
+brew lz4
+brew lzlib
 brew mas
 brew mpfr
 brew msgpack
@@ -40,29 +57,41 @@ brew neovim
 brew netcat
 brew oniguruma
 brew openssh
-brew openssl
 brew openssl@1.1
+brew osquery
 brew pcre
 brew pcre2
 brew pv
+brew python
+brew rapidjson
 brew readline
+brew rocksdb
+brew sleuthkit
+brew snappy
 brew speedtest-cli
 brew sqlite
+brew ssdeep
 brew tcl-tk
+brew thrift
 brew tree
 brew unibilium
 brew wget
 brew xz
+brew yara
 brew zlib
 brew zsh
 brew zsh-completions
+brew zstd
 
 tap homebrew/cask-fonts
+
+tap homebrew/cask-versions
 
 tap homebrew/cask
 cask balenaetcher
 cask docker
 cask iterm2
+cask spectacle
 
 tap rcmdnk/file
 brew brew-file
@@ -70,6 +99,7 @@ brew brew-file
 # Other Cask applications
 cask daisydisk
 cask google-chrome
+cask java
 cask visual-studio-code
 
 # App Store applications

@@ -4,60 +4,34 @@
 tap homebrew/core
 brew anyenv
 brew aria2
-brew arp-scan
-brew bash-completion
-brew coreutils
 brew docker
-brew fdupes
 brew fzf
 brew gcc
-brew gettext
-brew ghostscript
 brew ghq
 brew git
-brew gmp
 brew go
-brew isl
-brew jpeg
 brew jq
 brew ldns
-brew libidn2
-brew libmpc
-brew libpcap
-brew libssh2
-brew libtermkey
-brew libtiff
-brew libunistring
-brew libuv
-brew libvterm
-brew luajit
 brew mas
-brew mpfr
-brew msgpack
-brew ncurses
 brew neovim
-brew netcat
-brew oniguruma
 brew openssh
-brew openssl@1.1
-brew pcre
-brew pcre2
-brew pv
-brew readline
 brew tree
-brew unibilium
-brew wget
-brew xz
-brew zlib
 brew zsh
+brew zsh-completions
 
 tap homebrew/cask-fonts
+
+tap homebrew/cask-versions
 
 tap homebrew/cask
 cask balenaetcher
 cask docker
+cask iterm2
+cask spectacle
+
+tap beeftornado/rmtree
+brew brew-rmtree
 cask google-japanese-ime
-cask skype
 
 tap rcmdnk/file
 brew brew-file
@@ -72,14 +46,7 @@ cask visual-studio-code
 appstore 1333542190 1Password 7 (7.4.1)
 appstore 409183694 Keynote (9.2.1)
 appstore 405399194 Kindle (1.26.1)
-appstore 539883307 LINE (5.20.1)
 appstore 409203825 Numbers (6.2.1)
 appstore 409201541 Pages (8.2.1)
-appstore 1085114709 Parallels Desktop Lite (1.4.0)
 appstore 1429033973 RunCat (6.4)
-appstore 1126098076 Silenz (1.3.0)
 appstore 803453959 Slack (4.1.2)
-appstore 1176895641 Spark (2.3.15)
-appstore 485812721 TweetDeck (3.16.1)
-appstore 1482454543 Twitter (8.2)
-appstore 924726344 デリバリーズ (3.2.1)

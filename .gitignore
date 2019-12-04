@@ -1,7 +1,6 @@
 .DS_Store
 .python-version
 .venv
-Pipfile.lock
+*.lock
 __pycache__
 .vscode
-

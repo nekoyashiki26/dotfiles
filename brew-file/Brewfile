@@ -15,7 +15,9 @@ brew ldns
 brew mas
 brew neovim
 brew openssh
+brew readline
 brew tree
+brew xz
 brew zsh
 brew zsh-completions
 

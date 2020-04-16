@@ -133,6 +133,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # brewfile path
 export HOMEBREW_BREWFILE=`ghq list -p | grep dotfiles`/brew-file/Brewfile
+alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin brew' 
+
 # pip setting
 # pip zsh completion start
 function _pip_completion {

@@ -1,25 +1,25 @@
 #----------zsh plugin----------
-if [[ ! -f $HOME/.zplugin/bin/zplugin.zsh ]]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
-source $HOME/.zplugin/bin/zplugin.zsh
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source $HOME/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 # コマンド履歴から推測し、候補として表示するプラグイン。
-zplugin load 'zsh-users/zsh-autosuggestions'
+zinit light 'zsh-users/zsh-autosuggestions'
 # Zshの候補選択を拡張するプラグイン。
-zplugin load 'zsh-users/zsh-completions' 
+zinit light 'zsh-users/zsh-completions' 
 # cdの拡張
-zplugin load "b4b4r07/enhancd" 
+zinit light "b4b4r07/enhancd" 
 # プロンプトのコマンドを色づけするプラグイン
-zplugin load "zsh-users/zsh-syntax-highlighting"
+zinit light "zsh-users/zsh-syntax-highlighting"
 # theme
-zplugin load "agkozak/agkozak-zsh-theme"
-#zplugin load 'yous/lime'
-#zplugin load 'sindresorhus/pure'
+zinit light "agkozak/agkozak-zsh-theme"
+#zinit light 'yous/lime'
+#zinit light 'sindresorhus/pure'
 # シェルの設定を色々いい感じにやってくれる。
-zplugin load 'yous/vanilli.sh' 
-zplugin load 'zsh-users/zsh-history-substring-search'
+zinit light 'yous/vanilli.sh' 
+zinit light 'zsh-users/zsh-history-substring-search'
 
 #----------zsh setting----------
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -149,7 +149,7 @@ compctl -K _pip_completion pip
 
 # path
 # add path
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:/Users/triton/.anyenv/envs/pyenv/shims:/Users/triton/.anyenv/envs/pyenv/bin:/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin"
 
 # pipenv
 # virtual env create project file
@@ -164,4 +164,5 @@ export XDG_CONFIG_HOME="$HOME/.config"
 if (which zprof > /dev/null) ;then
   zprof | less
 fi
+
 

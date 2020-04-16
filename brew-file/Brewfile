@@ -11,7 +11,6 @@ brew ghq
 brew git
 brew go
 brew jq
-brew ldns
 brew mas
 brew neovim
 brew openssh
@@ -52,3 +51,5 @@ appstore 409203825 Numbers (6.2.1)
 appstore 409201541 Pages (8.2.1)
 appstore 1429033973 RunCat (6.4)
 appstore 803453959 Slack (4.1.2)
+appstore 1176895641 Spark (2.5.8)
+appstore 1085114709 Parallels Desktop (1.5.0)

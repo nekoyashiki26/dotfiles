@@ -22,7 +22,7 @@ zinit light 'yous/vanilli.sh'
 zinit light 'zsh-users/zsh-history-substring-search'
 
 #----------zsh setting----------
-fpath=(/usr/local/share/zsh-completions $fpath)
+FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 autoload -U compinit
 compinit -u
 
@@ -67,8 +67,6 @@ alias la='gls --color=auto -la'
 alias ls='gls --color=auto'
 alias dl='aria2c -k 20M -s 16 -x 16'
 alias sudo='sudo -E '
-alias sd='mac shutdown > /dev/null'
-alias reboot='mac restart > /dev/null'
 alias load='exec zsh -l'
 alias c='clear'
 alias vi='nvim'

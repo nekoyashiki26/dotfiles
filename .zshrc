@@ -91,6 +91,15 @@ alias gget='ghq get -shallow'
 
 # pipenv
 alias penv='pipenv --python 3.7.0 && pipenv lock && pipenv shell'
+
+#電源周り
+# Shutdown
+alias shutdown="osascript -e 'tell app \"loginwindow\" to «event aevtrsdn»'"
+# reboot
+alias reboot="osascript -e 'tell app \"loginwindow\" to «event aevtrrst»'"
+# lock
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
 # ---------- custom command ----------
 # show history using fzf
 function select-history() {

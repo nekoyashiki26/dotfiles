@@ -147,7 +147,7 @@ compctl -K _pip_completion pip
 
 # path
 # add path
-export PATH="/usr/local/sbin:/Users/triton/.anyenv/envs/pyenv/shims:/Users/triton/.anyenv/envs/pyenv/bin:/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:/usr/local/sbin"
 
 # pipenv
 # virtual env create project file
@@ -163,4 +163,4 @@ if (which zprof > /dev/null) ;then
   zprof | less
 fi
 
-
+typeset -U path PATH 

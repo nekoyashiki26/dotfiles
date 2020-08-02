@@ -16,7 +16,6 @@
     email = b1518292@planet.kanazawa-it.ac.jp
 [core]
     editor = vim -c \"set fenc=utf-8\"
-	excludesfile = /Users/com/.gitignore
+    excludesfile = /Users/com/.gitignore
 [ghq]
-    root = ~/.ghq
-    root = ~/.go/src
+	root = /Users/y.y/.ghq

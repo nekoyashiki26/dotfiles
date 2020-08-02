@@ -149,6 +149,9 @@ compctl -K _pip_completion pip
 # add path
 export PATH="$PATH:/usr/local/sbin"
 
+# GO PATH
+export GOPATH=$HOME"/.go"
+
 # pipenv
 # virtual env create project file
 export PIPENV_VENV_IN_PROJECT=true

@@ -5,29 +5,20 @@
     },
     "window.zoomLevel": 2,
     "workbench.colorTheme": "Visual Studio Dark",
-    "team.showWelcomeMessage": false,
-    "python.pythonPath": "/Users/com/.anyenv/envs/pyenv/versions/3.7.0/bin/python",
-    "vim.useSystemClipboard":true,
-    "vim.cmdLineInitialColon": true,
-    "python.venvPath": ".venv",
-    "vim.hlsearch": true,
-    "vim.easymotion": true,
-    "vim.visualstar": true,
-    "vim.useCtrlKeys": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j","j"],
-            "after": ["<Esc>"]
-        },
-        {
-            "before": ["k","k"],
-            "after": ["<Esc>"]
- 
-        }
+    "files.watcherExclude": {
+        "**/venv/**": true
+    },
+    // リンタの設定
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Args": [
+        "--max-line-length",
+        "88",
+        "--ignore=E203,W503,W504"
     ],
-    "vim.leader": "<space>",
-    "python.jediEnabled": false,
-    "editor.renderControlCharacters": true,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+    // フォーマッタの設定
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false
 }

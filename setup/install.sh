@@ -11,6 +11,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/nekoyashiki26/dotfiles/mas
 echo " --------- dotfiles setting start ----------"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/nekoyashiki26/dotfiles/master/setup/setup_dotfiles.sh)"
 
+echo " --------- git setting start ----------"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nekoyashiki26/dotfiles/master/setup/setup_git.sh)"
+
 echo " --------- app install start ----------"
 sh `ghq list -p | grep dotfiles`/setup/setup_app.sh
 

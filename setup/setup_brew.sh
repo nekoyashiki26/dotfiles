@@ -22,5 +22,6 @@ fi
 # ghq install
 if [ ! -x "`which ghq`" ]; then
     brew install ghq
+    git config --global ghq.root ~/.ghq
 fi
 

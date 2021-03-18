@@ -1,9 +1,10 @@
 #!/bin/bash
 # dotfiles設置
 
-# とりあえずGHQのルートディレクトリを設定
-git config --global ghq.root "~/.ghq"
 if [ ! -e ~/.ghq/github.com/nekoyashiki26/dotfiles ]; then
+    # とりあえずGHQのルートディレクトリを設定
+    git config --global ghq.root "~/.ghq"
+    sleep 1s
     ghq get -shallow https://github.com/nekoyashiki26/dotfiles.git
 fi
 echo " --------- create simbolic link start ----------"

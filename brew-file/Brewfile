@@ -16,6 +16,7 @@ brew mas
 brew neovim
 brew openssh
 brew readline
+brew sshuttle
 brew tree
 brew xz
 brew zsh
